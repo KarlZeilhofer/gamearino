@@ -1,0 +1,143 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 2
+Title "Gamearino"
+Date "2020-10-13"
+Rev "20.0.0-dev"
+Comp "HTL-Steyr"
+Comment1 "4ABHEL, 2020/2021"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L htl_modules:ESP-12F U1
+U 1 1 5F8584F9
+P 5650 3650
+F 0 "U1" H 5650 4631 50  0000 C CNN
+F 1 "ESP-12F" H 5650 4540 50  0000 C CNN
+F 2 "htl_modules:ESP-12F" H 5650 3650 50  0001 C CNN
+F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 5300 3750 50  0001 C CNN
+	1    5650 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW6
+U 1 1 5F85A62C
+P 2750 3850
+F 0 "SW6" H 2750 4135 50  0000 C CNN
+F 1 "Start" H 2750 4044 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 2750 4050 50  0001 C CNN
+F 3 "~" H 2750 4050 50  0001 C CNN
+	1    2750 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW5
+U 1 1 5F85AD7E
+P 2250 3800
+F 0 "SW5" H 2250 4085 50  0000 C CNN
+F 1 "Select" H 2250 3994 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 2250 4000 50  0001 C CNN
+F 3 "~" H 2250 4000 50  0001 C CNN
+	1    2250 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW1
+U 1 1 5F85B3A1
+P 750 3350
+F 0 "SW1" H 750 3635 50  0000 C CNN
+F 1 "Left" H 750 3544 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 750 3550 50  0001 C CNN
+F 3 "~" H 750 3550 50  0001 C CNN
+	1    750  3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW7
+U 1 1 5F85B699
+P 3700 3500
+F 0 "SW7" H 3700 3785 50  0000 C CNN
+F 1 "B" H 3700 3694 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 3700 3700 50  0001 C CNN
+F 3 "~" H 3700 3700 50  0001 C CNN
+	1    3700 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW8
+U 1 1 5F85BABD
+P 4150 3150
+F 0 "SW8" H 4150 3435 50  0000 C CNN
+F 1 "A" H 4150 3344 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 4150 3350 50  0001 C CNN
+F 3 "~" H 4150 3350 50  0001 C CNN
+	1    4150 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW2
+U 1 1 5F85BEA1
+P 1200 3050
+F 0 "SW2" H 1200 3335 50  0000 C CNN
+F 1 "Up" H 1200 3244 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 1200 3250 50  0001 C CNN
+F 3 "~" H 1200 3250 50  0001 C CNN
+	1    1200 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW3
+U 1 1 5F85C374
+P 1200 3600
+F 0 "SW3" H 1200 3885 50  0000 C CNN
+F 1 "Down" H 1200 3794 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 1200 3800 50  0001 C CNN
+F 3 "~" H 1200 3800 50  0001 C CNN
+	1    1200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW4
+U 1 1 5F85CDAE
+P 1600 3350
+F 0 "SW4" H 1600 3635 50  0000 C CNN
+F 1 "Right" H 1600 3544 50  0000 C CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 1600 3550 50  0001 C CNN
+F 3 "~" H 1600 3550 50  0001 C CNN
+	1    1600 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NPN_BEC Q3
+U 1 1 5F862D41
+P 8700 2700
+F 0 "Q3" H 8890 2746 50  0000 L CNN
+F 1 "PMBT3904" H 8890 2655 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 8900 2800 50  0001 C CNN
+F 3 "~" H 8700 2700 50  0001 C CNN
+	1    8700 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_PNP_BEC Q4
+U 1 1 5F86341B
+P 8900 2000
+F 0 "Q4" H 9091 1954 50  0000 L CNN
+F 1 "PMBT3906" H 9091 2045 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 9100 2100 50  0001 C CNN
+F 3 "~" H 8900 2000 50  0001 C CNN
+	1    8900 2000
+	-1   0    0    1   
+$EndComp
+$Sheet
+S 3250 5100 1850 1200
+U 5F8674B3
+F0 "OLED 128x64" 50
+F1 "oled.sch" 50
+$EndSheet
+$EndSCHEMATC
