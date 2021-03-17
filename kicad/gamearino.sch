@@ -276,7 +276,7 @@ Enable Pin:\nmuss über 10k auf 3V3 liegen
 Text Notes 6650 5450 0    50   ~ 0
 GPIO15:\nmuss beim Booten über 10k\nauf GND liegen. Dann kann er\nverwendet werden. 
 Text Notes 9150 4350 0    50   ~ 0
-Arduino-IDE:\nProgrammierbar über die Standardeinstellungen\nfür NodeMCU V1.0
+Arduino-IDE:\nProgrammierbar über die Standardeinstellungen\nfür ESP8266/NodeMCU V1.0
 $Comp
 L htl_virtual:Item Item1
 U 1 1 60467F30
@@ -354,4 +354,19 @@ F 3 "~" V 800 7600 50  0001 C CNN
 	1    800  7600
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60538B2A
+P 6750 4050
+AR Path="/5F8674B3/60538B2A" Ref="#PWR?"  Part="1" 
+AR Path="/60538B2A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6750 3800 50  0001 C CNN
+F 1 "GND" H 6754 3895 50  0000 C CNN
+F 2 "" H 6750 4050 50  0001 C CNN
+F 3 "" H 6750 4050 50  0001 C CNN
+	1    6750 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 4050 6750 4050
 $EndSCHEMATC
