@@ -1,6 +1,11 @@
 Changelog Gamearino
 ===================
 
+# TODOs
+* Schaltung laut Schaltplan noch am Steckbrett testen
+  * Boot/Flash-Problem mit SDA-Leitung klären und fixen
+* Start/Select-Taster noch höher machen
+* Gehäuse gestalten
 
 
 # V0.0.0 - Entwicklung
@@ -12,4 +17,6 @@ Changelog Gamearino
 * OLED-Beschaltung auf Steckbrett getestet
 * 3D-Design der Taster und des Steuerkreuzes
 * Die 8 Taster werden über eine 3x3-Tastermatrix ausgewertet
+* Autoreset: unterer Transistor gespiegelt. Beide sind NPN. 
+* Pinbelegungsliste als .ods-Datei
 
