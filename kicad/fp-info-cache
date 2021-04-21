@@ -1,4 +1,4 @@
-18635746736454104
+18629330269756620
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -82620,41 +82620,13 @@ varistor SIOV
 0
 2
 2
-gamearino
-ABKnopf
-
-
+footprint-demo
+R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf
+Resistor Axial_DIN0207 series Axial Horizontal pin pitch 10.16mm 0.25W = 1/4W length 6.3mm diameter 2.5mm
 0
-0
-0
-gamearino
-OLED_128x64_FlatRibbon_30
-
-
-0
-30
-30
-gamearino
-StartSelect
-
-
-0
-0
-0
-gamearino
-Steuerkreuz
-
-
-0
-0
-0
-gamearino
-Steuerkreuz_zeik
-
-
-0
-0
-0
+2
+2
 htl_connectors
 DSUB-9_Female_EdgeMount_P2.77mm
 9-pin D-Sub connector, solder-cups edge-mounted, female, x-pin-pitch 2.77mm, distance of mounting holes 25mm, see https://disti-assets.s3.amazonaws.com/tonar/files/datasheets/16730.pdf

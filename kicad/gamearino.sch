@@ -26,8 +26,6 @@ F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manua
 $EndComp
 Text Notes 5950 2300 0    50   ~ 0
 GPIO0 - Bootmode: \nlow=bootloader, \nhigh=flashboot
-Text Notes 1050 750  0    50   ~ 0
-TODO: SDA/SCL an ESP ausprobieren
 Wire Wire Line
 	6300 3350 6500 3350
 Wire Wire Line
@@ -375,8 +373,8 @@ NoConn ~ 5700 4450
 NoConn ~ 5800 4450
 NoConn ~ 5900 4450
 NoConn ~ 6000 4450
-Text Notes 7150 4700 0    50   ~ 0
-TODO: SDA-Leitung macht \ndas Flashen aktuell unmöglich. 
-Wire Notes Line
-	7100 4600 6800 3850
+Text Notes 3750 5700 0    50   ~ 0
+TODO: Taster ausprobieren
+Text Notes 2050 6350 0    50   ~ 0
+TODO: Neue 3D-Modelle verwenden
 $EndSCHEMATC

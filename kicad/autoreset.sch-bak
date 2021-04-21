@@ -140,5 +140,5 @@ Connection ~ 4000 3150
 Wire Wire Line
 	6550 2950 5300 2950
 Text Notes 3850 2500 0    50   ~ 0
-Wahrheitstabelle:\n\nDTR  RTS  |  RST  IO0\n---------------\nLO   LO   |  HIZ  HI\nLO   HI    |  HIZ  LO\nHI   LO    |  LO   HI\nHI   HI    |  HI   HI
+Wahrheitstabelle:\n\nDTR  RTS  |  RST  GPIO0\n---------------\nLO   LO   |  HIZ  HI\nLO   HI    |  HIZ  LO\nHI   LO    |  LO   HI\nHI   HI    |  HI   HI
 $EndSCHEMATC
