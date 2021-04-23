@@ -375,4 +375,6 @@ NoConn ~ 5900 4450
 NoConn ~ 6000 4450
 Text Notes 3750 5700 0    50   ~ 0
 TODO: Taster ausprobieren
+Text Notes 2050 6350 0    50   ~ 0
+TODO: Neue 3D-Modelle verwenden
 $EndSCHEMATC

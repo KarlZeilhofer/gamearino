@@ -20,6 +20,7 @@ Changelog Gamearino
 * Bemaßungen der Taster
 * TODOs aktualisiert: ESP mit OLED erfolgreich getestet
 * OLED Demoprogramm
+* Tastenanordnung Start/Select und A/B wie beim Original Gameboy (TM)
 
 ## 3D-Druck
 * Steuerkreuz: Unterkante von 1.8mm auf Niveau +1.6mm abgesenkt, Haltering bleibt oben +2.8mm
