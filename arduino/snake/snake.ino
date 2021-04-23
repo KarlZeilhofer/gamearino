@@ -1,5 +1,3 @@
-// TODO: implement buttons for Gamearino
-
 // License: GPL v2
 // Authors: some students from HTBLA Steyr, Austria
 
@@ -26,7 +24,6 @@ typedef struct point {
 #define TimePrell 30
 
 // Button Matrix 
-// TODO: implementation in function getButtonPress()
 // UP      C0-R0
 // DOWN    C0-R2
 // LEFT    C0-R1
@@ -36,14 +33,15 @@ typedef struct point {
 // B       C2-R1
 // A       C2-R0
 
-// MCU inputs (hardware pullups 10k):
-#define MatrixR0 16
-#define MatrixR1 12
-#define MatrixR2 13
+
 // MCU outputs:
 #define MatrixC0 15
 #define MatrixC1 4
 #define MatrixC2 5
+// MCU inputs (hardware pullups 10k):
+#define MatrixR0 16
+#define MatrixR1 12
+#define MatrixR2 13
 
 
 #include <stdlib.h>
@@ -113,14 +111,16 @@ void setup() {
   display.clearDisplay();
 
 
+  pinMode(MatrixC0, OUTPUT);
+  pinMode(MatrixC1, OUTPUT);
+  pinMode(MatrixC2, OUTPUT);
+  
+  pinMode(MatrixR0, INPUT_PULLUP);
+  pinMode(MatrixR1, INPUT_PULLUP);
+  pinMode(MatrixR2, INPUT_PULLUP);
+  
 
-  pinMode(PinSTART, INPUT_PULLUP);
-  pinMode(PinUP, INPUT_PULLUP);
-  pinMode(PinDOWN, INPUT_PULLUP);
-  pinMode(PinLEFT, INPUT_PULLUP);
-  pinMode(PinRIGHT, INPUT_PULLUP);
-
-
+  // clear high score TODO with matrix
   if (digitalRead(PinSTART) == LOW && digitalRead(PinUP) == LOW) {
 
     for (uint8_t i = 0; i < 15; i++) {
@@ -131,7 +131,6 @@ void setup() {
 
   // Clear the buffer
   printWelcomeScreen();
-
 }
 
 
@@ -231,40 +230,70 @@ void printLeaderBoard() {
 Buttons getButtonPress() {
   Buttons rv = EMPTY;
 
+  // Test for UP, LEFT or DOWN
+  digitalWrite(MatrixC0, LOW);
+  digitalWrite(MatrixC1, HIGH);
+  digitalWrite(MatrixC2, HIGH);
 
-  if (millis() - lastSTART > TimePrell) {
-    int valSTART = digitalRead(PinSTART);
-    if (checkButton(valSTART, &pinSTARTLow, &lastSTART) == true) {
-      return START;
-    }
-  }
   if (millis() - lastUP > TimePrell) {
-    int valUP = digitalRead(PinUP);
+    int valUP = digitalRead(MatrixR0);
     if (checkButton(valUP, &pinUPLow, &lastUP) == true) {
+      Serial.println("UP");
       return UP;
     }
   }
-  if (millis() - lastDOWN > TimePrell) {
-    int valDOWN = digitalRead(PinDOWN);
-    if (checkButton(valDOWN, &pinDOWNLow, &lastDOWN) == true) {
-      return DOWN;
-    }
-  }
-  if (millis() - lastRIGHT > TimePrell) {
-    int valRIGHT = digitalRead(PinRIGHT);
-    if (checkButton(valRIGHT, &pinRIGHTLow, &lastRIGHT) == true) {
-
-      return RIGHT;
-    }
-  }
   if (millis() - lastLEFT > TimePrell) {
-    int valLEFT = digitalRead(PinLEFT);
+    int valLEFT = digitalRead(MatrixR1);
     if (checkButton(valLEFT, &pinLEFTLow, &lastLEFT) == true) {
-
+      Serial.println("LEFT");
       return LEFT;
     }
   }
+  if (millis() - lastDOWN > TimePrell) {
+    int valDOWN = digitalRead(MatrixR2);
+    if (checkButton(valDOWN, &pinDOWNLow, &lastDOWN) == true) {
+      Serial.println("DOWN");
+      return DOWN;
+    }
+  }
 
+  // Test for SELECT, START or RIGHT
+  digitalWrite(MatrixC0, HIGH);
+  digitalWrite(MatrixC1, LOW);
+  digitalWrite(MatrixC2, HIGH);
+
+  // TODO: Implement Select Button
+
+  if (millis() - lastSTART > TimePrell) {
+    int valSTART = digitalRead(MatrixR1);
+    if (checkButton(valSTART, &pinSTARTLow, &lastSTART) == true) {
+      Serial.println("START");
+      return START;
+    }
+  }
+
+  if (millis() - lastRIGHT > TimePrell) {
+    int valRIGHT = digitalRead(MatrixR2);
+    if (checkButton(valRIGHT, &pinRIGHTLow, &lastRIGHT) == true) {
+      Serial.println("RIGHT");
+      return RIGHT;
+    }
+  }
+
+  // Test for A, B or Reserved
+  digitalWrite(MatrixC0, HIGH);
+  digitalWrite(MatrixC1, HIGH);
+  digitalWrite(MatrixC2, LOW);
+
+  // TODO: Implement A Button
+  // TODO: Implement B Button
+  // TODO: Implement Reserved Button
+
+
+
+  digitalWrite(MatrixC0, HIGH);
+  digitalWrite(MatrixC1, HIGH);
+  digitalWrite(MatrixC2, HIGH);
 
   return rv;
 }
