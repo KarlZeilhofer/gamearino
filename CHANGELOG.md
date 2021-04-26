@@ -2,9 +2,8 @@ Changelog Gamearino
 ===================
 
 
-
 # Elektronik
-## V0.0.0 - Entwicklung
+## V0.0.1 - CNC-Prototyp
 * Grundbeschaltung des ESP8266 ESP-12F:
   * 10k auf GPIO15 gegen GND
   * 10k auf Enable gegen 3V3
@@ -19,6 +18,8 @@ Changelog Gamearino
 * TODOs aktualisiert: ESP mit OLED erfolgreich getestet
 * OLED Demoprogramm
 * Tastenanordnung Start/Select und A/B wie beim Original Gameboy (TM)
+* USB-Footprint optimiert, inkl. Pin in Paste
+* Layout für CNC-Fertigung (ca. 60 Vias!)
 
 # 3D-Druck
 * Steuerkreuz: Unterkante von 1.8mm auf Niveau +1.6mm abgesenkt, Haltering bleibt oben +2.8mm

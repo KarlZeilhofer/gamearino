@@ -210,7 +210,7 @@ U 1 1 6048A1E2
 P 10300 5750
 F 0 "H1" H 10400 5796 50  0000 L CNN
 F 1 "MountingHole" H 10400 5705 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 10300 5750 50  0001 C CNN
+F 2 "htl_mechanical:MountingHole_3.2mm_M3" H 10300 5750 50  0001 C CNN
 F 3 "~" H 10300 5750 50  0001 C CNN
 	1    10300 5750
 	1    0    0    -1  
@@ -221,7 +221,7 @@ U 1 1 6048AB39
 P 10300 5950
 F 0 "H2" H 10400 5996 50  0000 L CNN
 F 1 "MountingHole" H 10400 5905 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 10300 5950 50  0001 C CNN
+F 2 "htl_mechanical:MountingHole_3.2mm_M3" H 10300 5950 50  0001 C CNN
 F 3 "~" H 10300 5950 50  0001 C CNN
 	1    10300 5950
 	1    0    0    -1  
@@ -232,7 +232,7 @@ U 1 1 6048ACBF
 P 10300 6150
 F 0 "H3" H 10400 6196 50  0000 L CNN
 F 1 "MountingHole" H 10400 6105 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 10300 6150 50  0001 C CNN
+F 2 "htl_mechanical:MountingHole_3.2mm_M3" H 10300 6150 50  0001 C CNN
 F 3 "~" H 10300 6150 50  0001 C CNN
 	1    10300 6150
 	1    0    0    -1  
@@ -243,7 +243,7 @@ U 1 1 6048AE0B
 P 10300 6350
 F 0 "H4" H 10400 6396 50  0000 L CNN
 F 1 "MountingHole" H 10400 6305 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 10300 6350 50  0001 C CNN
+F 2 "htl_mechanical:MountingHole_3.2mm_M3" H 10300 6350 50  0001 C CNN
 F 3 "~" H 10300 6350 50  0001 C CNN
 	1    10300 6350
 	1    0    0    -1  
@@ -357,8 +357,8 @@ L power:GND #PWR?
 U 1 1 60538B2A
 P 6750 4050
 AR Path="/5F8674B3/60538B2A" Ref="#PWR?"  Part="1" 
-AR Path="/60538B2A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6750 3800 50  0001 C CNN
+AR Path="/60538B2A" Ref="#PWR0102"  Part="1" 
+F 0 "#PWR0102" H 6750 3800 50  0001 C CNN
 F 1 "GND" H 6754 3895 50  0000 C CNN
 F 2 "" H 6750 4050 50  0001 C CNN
 F 3 "" H 6750 4050 50  0001 C CNN
