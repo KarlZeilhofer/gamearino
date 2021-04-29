@@ -4,12 +4,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 5
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Gamearino"
+Date "2021-04-29"
+Rev "V0.0.2"
+Comp "HTL-Steyr"
+Comment1 "4ABHEL, 2020/2021"
+Comment2 "Hosted by Prof. Karl Zeilhofer"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -23,8 +23,8 @@ U 1 1 603FFF1B
 P 6250 3700
 AR Path="/5F8674B3/603FFF1B" Ref="#PWR?"  Part="1" 
 AR Path="/603FFF1B" Ref="#PWR?"  Part="1" 
-AR Path="/603FCB6F/603FFF1B" Ref="#PWR06"  Part="1" 
-F 0 "#PWR06" H 6250 3550 50  0001 C CNN
+AR Path="/603FCB6F/603FFF1B" Ref="#PWR08"  Part="1" 
+F 0 "#PWR08" H 6250 3550 50  0001 C CNN
 F 1 "+3.3V" H 6265 3873 50  0000 C CNN
 F 2 "" H 6250 3700 50  0001 C CNN
 F 3 "" H 6250 3700 50  0001 C CNN

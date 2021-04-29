@@ -1,4 +1,5 @@
-(module OLED_128x64_FlatRibbon_30 locked (layer F.Cu) (tedit 60867810)
+(module OLED_128x64_FlatRibbon_30 locked (layer F.Cu) (tedit 608AE602)
+  (attr smd)
   (fp_text reference U4 (at 0.5 5.8) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )

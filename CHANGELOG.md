@@ -21,6 +21,22 @@ Changelog Gamearino
 * USB-Footprint optimiert, inkl. Pin in Paste
 * Layout für CNC-Fertigung (ca. 60 Vias!)
 
+## V0.0.2 Prototyp Multi-CB
+* Bauteilsortenreduktion beim LCD: 10uF statt 4.7uF, und 2x1uF statt 2.2uF
+* Terminierung der unbenutzten Eingänge am CH340
+* 5k1 auf CC1 und CC2 bei USB-C-Stecker
+* Verwendung des neuen USB-C Footprints mit Pin in Paste
+* Pastenreduktion 30um
+* Lötstoppfreistellung: 51um
+* 150um Leiterbahnabstand
+* 150um Mindestleiterbahnbreite
+* Passmarken für SMD-Schablone
+* 3D-Modelle für Taster und Steuerkreuz aktualisiert
+* Taster beschriftet
+* Beschriftungen auf PCB-Rückseite
+* Power-LED hinzugefügt (Doppel LED, rot aktiv)
+* Bestellung 3 Stk. bei Multi-CB inkl. SMD-Schablone mit 120um
+
 # 3D-Druck
 * Steuerkreuz: Unterkante von 1.8mm auf Niveau +1.6mm abgesenkt, Haltering bleibt oben +2.8mm
 * Gehäuseboden gestaltet

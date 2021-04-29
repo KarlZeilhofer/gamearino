@@ -5,11 +5,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 5
 Title "Gamearino"
-Date "2020-10-13"
-Rev "20.0.0-dev"
+Date "2021-04-29"
+Rev "V0.0.2"
 Comp "HTL-Steyr"
 Comment1 "4ABHEL, 2020/2021"
-Comment2 ""
+Comment2 "Hosted by Prof. Karl Zeilhofer"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -21,6 +21,13 @@ F 0 "U1" H 6200 4700 50  0000 C CNN
 F 1 "ESP-12F" H 6100 4600 50  0000 C CNN
 F 2 "htl_modules:ESP-12F" H 5750 3850 50  0001 C CNN
 F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 5400 3950 50  0001 C CNN
+F 4 "C82891" H 5750 3850 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 5750 3850 50  0001 C CNN "Distributor"
+F 6 "ESP-12F(ESP8266MOD)" H 5750 3850 50  0001 C CNN "ManPartNr"
+F 7 "Ai-Thinker" H 5750 3850 50  0001 C CNN "Manufacturer"
+F 8 "1.24" H 5750 3850 50  0001 C CNN "PriceEUR"
+F 9 "100" H 5750 3850 50  0001 C CNN "PriceForQty"
+F 10 "https://lcsc.com/product-detail/WiFi-Modules_Ai-Thinker-ESP-12F-ESP8266MOD_C82891.html" H 5750 3850 50  0001 C CNN "Weblink"
 	1    5750 3850
 	1    0    0    -1  
 $EndComp
@@ -116,9 +123,9 @@ L power:+3.3V #PWR?
 U 1 1 60406C3E
 P 4900 2850
 AR Path="/5F8674B3/60406C3E" Ref="#PWR?"  Part="1" 
-AR Path="/60406C3E" Ref="#PWR01"  Part="1" 
+AR Path="/60406C3E" Ref="#PWR02"  Part="1" 
 AR Path="/603FCB6F/60406C3E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR01" H 4900 2700 50  0001 C CNN
+F 0 "#PWR02" H 4900 2700 50  0001 C CNN
 F 1 "+3.3V" H 4915 3023 50  0000 C CNN
 F 2 "" H 4900 2850 50  0001 C CNN
 F 3 "" H 4900 2850 50  0001 C CNN
@@ -157,8 +164,8 @@ L power:GND #PWR?
 U 1 1 6040EFD2
 P 6350 5550
 AR Path="/5F8674B3/6040EFD2" Ref="#PWR?"  Part="1" 
-AR Path="/6040EFD2" Ref="#PWR02"  Part="1" 
-F 0 "#PWR02" H 6350 5300 50  0001 C CNN
+AR Path="/6040EFD2" Ref="#PWR03"  Part="1" 
+F 0 "#PWR03" H 6350 5300 50  0001 C CNN
 F 1 "GND" H 6354 5395 50  0000 C CNN
 F 2 "" H 6350 5550 50  0001 C CNN
 F 3 "" H 6350 5550 50  0001 C CNN
@@ -256,8 +263,8 @@ AR Path="/5F7F8851/5F7FB5B8/60461F5A" Ref="#PWR?"  Part="1"
 AR Path="/5F8AD0E2/5F7FB5B8/60461F5A" Ref="#PWR?"  Part="1" 
 AR Path="/5FA85ABF/5F7FB5B8/60461F5A" Ref="#PWR?"  Part="1" 
 AR Path="/5F8D661A/60461F5A" Ref="#PWR?"  Part="1" 
-AR Path="/60461F5A" Ref="#PWR0101"  Part="1" 
-F 0 "#PWR0101" H 4800 4100 50  0001 C CNN
+AR Path="/60461F5A" Ref="#PWR01"  Part="1" 
+F 0 "#PWR01" H 4800 4100 50  0001 C CNN
 F 1 "+3V3" H 4815 4423 50  0000 C CNN
 F 2 "" H 4800 4250 50  0001 C CNN
 F 3 "" H 4800 4250 50  0001 C CNN
@@ -281,7 +288,7 @@ U 1 1 60467F30
 P 800 6300
 F 0 "Item1" H 930 6346 50  0000 L CNN
 F 1 "3D Druck: Knopf A" H 930 6255 50  0000 L CNN
-F 2 "gamearino:ABKnopf" H 800 6230 50  0001 C CNN
+F 2 "gamearino:ABKnopf_v2" H 800 6230 50  0001 C CNN
 F 3 "~" V 800 6300 50  0001 C CNN
 	1    800  6300
 	1    0    0    -1  
@@ -292,7 +299,7 @@ U 1 1 6046831B
 P 800 6500
 F 0 "Item2" H 930 6546 50  0000 L CNN
 F 1 "3D Druck: Knopf B" H 930 6455 50  0000 L CNN
-F 2 "gamearino:ABKnopf" H 800 6430 50  0001 C CNN
+F 2 "gamearino:ABKnopf_v2" H 800 6430 50  0001 C CNN
 F 3 "~" V 800 6500 50  0001 C CNN
 	1    800  6500
 	1    0    0    -1  
@@ -303,7 +310,7 @@ U 1 1 6046859D
 P 800 6700
 F 0 "Item3" H 930 6746 50  0000 L CNN
 F 1 "3D Druck: Knopf Start" H 930 6655 50  0000 L CNN
-F 2 "gamearino:StartSelect" H 800 6630 50  0001 C CNN
+F 2 "gamearino:StartSelect_v2" H 800 6630 50  0001 C CNN
 F 3 "~" V 800 6700 50  0001 C CNN
 	1    800  6700
 	1    0    0    -1  
@@ -314,7 +321,7 @@ U 1 1 60468899
 P 800 6900
 F 0 "Item4" H 930 6946 50  0000 L CNN
 F 1 "3D Druck: Knopf Select" H 930 6855 50  0000 L CNN
-F 2 "gamearino:StartSelect" H 800 6830 50  0001 C CNN
+F 2 "gamearino:StartSelect_v2" H 800 6830 50  0001 C CNN
 F 3 "~" V 800 6900 50  0001 C CNN
 	1    800  6900
 	1    0    0    -1  
@@ -325,7 +332,7 @@ U 1 1 60469ECB
 P 800 7100
 F 0 "Item5" H 930 7146 50  0000 L CNN
 F 1 "3D Druck: Steuerkreuz" H 930 7055 50  0000 L CNN
-F 2 "gamearino:Steuerkreuz_zeik" H 800 7030 50  0001 C CNN
+F 2 "gamearino:Steuerkreuz_zeik_v2" H 800 7030 50  0001 C CNN
 F 3 "~" V 800 7100 50  0001 C CNN
 	1    800  7100
 	1    0    0    -1  
@@ -357,8 +364,8 @@ L power:GND #PWR?
 U 1 1 60538B2A
 P 6750 4050
 AR Path="/5F8674B3/60538B2A" Ref="#PWR?"  Part="1" 
-AR Path="/60538B2A" Ref="#PWR0102"  Part="1" 
-F 0 "#PWR0102" H 6750 3800 50  0001 C CNN
+AR Path="/60538B2A" Ref="#PWR04"  Part="1" 
+F 0 "#PWR04" H 6750 3800 50  0001 C CNN
 F 1 "GND" H 6754 3895 50  0000 C CNN
 F 2 "" H 6750 4050 50  0001 C CNN
 F 3 "" H 6750 4050 50  0001 C CNN
@@ -375,6 +382,28 @@ NoConn ~ 5900 4450
 NoConn ~ 6000 4450
 Text Notes 3750 5700 0    50   ~ 0
 TODO: Taster ausprobieren
-Text Notes 2050 6350 0    50   ~ 0
-TODO: Neue 3D-Modelle verwenden
+Text Label 5000 3550 0    30   ~ 0
+EN
+$Comp
+L Mechanical:Fiducial FID1
+U 1 1 6090F4D5
+P 9500 5800
+F 0 "FID1" H 9585 5846 50  0000 L CNN
+F 1 "Fiducial" H 9585 5755 50  0000 L CNN
+F 2 "htl_mechanical:paste-fiducial" H 9500 5800 50  0001 C CNN
+F 3 "~" H 9500 5800 50  0001 C CNN
+	1    9500 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID2
+U 1 1 6090F84F
+P 9500 6000
+F 0 "FID2" H 9585 6046 50  0000 L CNN
+F 1 "Fiducial" H 9585 5955 50  0000 L CNN
+F 2 "htl_mechanical:paste-fiducial" H 9500 6000 50  0001 C CNN
+F 3 "~" H 9500 6000 50  0001 C CNN
+	1    9500 6000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

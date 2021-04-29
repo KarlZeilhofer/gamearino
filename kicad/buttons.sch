@@ -4,12 +4,12 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 5
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Title "Gamearino"
+Date "2021-04-29"
+Rev "V0.0.2"
+Comp "HTL-Steyr"
+Comment1 "4ABHEL, 2020/2021"
+Comment2 "Hosted by Prof. Karl Zeilhofer"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -21,6 +21,11 @@ F 0 "SW2" H 3500 4081 50  0000 C CNN
 F 1 "Up" H 3500 3990 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 3500 4000 50  0001 C CNN
 F 3 "~" H 3500 4000 50  0001 C CNN
+F 4 "C318884" H 3500 3800 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 3500 3800 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 3500 3800 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 3500 3800 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 3500 3800 50  0001 C CNN "Notes"
 	1    3500 3800
 	1    0    0    -1  
 $EndComp
@@ -32,6 +37,11 @@ F 0 "SW1" H 2700 4311 50  0000 C CNN
 F 1 "Left" H 2700 4220 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 2700 4700 50  0001 C CNN
 F 3 "~" H 2700 4700 50  0001 C CNN
+F 4 "C318884" H 2700 4500 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 2700 4500 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 2700 4500 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 2700 4500 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 2700 4500 50  0001 C CNN "Notes"
 	1    2700 4500
 	1    0    0    -1  
 $EndComp
@@ -43,6 +53,11 @@ F 0 "SW4" H 4300 4261 50  0000 C CNN
 F 1 "Right" H 4300 4170 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 4300 4650 50  0001 C CNN
 F 3 "~" H 4300 4650 50  0001 C CNN
+F 4 "C318884" H 4300 4450 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 4300 4450 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 4300 4450 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 4300 4450 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 4300 4450 50  0001 C CNN "Notes"
 	1    4300 4450
 	1    0    0    -1  
 $EndComp
@@ -54,6 +69,11 @@ F 0 "SW3" H 3550 5731 50  0000 C CNN
 F 1 "Down" H 3550 5640 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 3550 5650 50  0001 C CNN
 F 3 "~" H 3550 5650 50  0001 C CNN
+F 4 "C318884" H 3550 5450 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 3550 5450 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 3550 5450 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 3550 5450 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 3550 5450 50  0001 C CNN "Notes"
 	1    3550 5450
 	1    0    0    -1  
 $EndComp
@@ -74,8 +94,8 @@ U 1 1 603D5276
 P 9000 3350
 AR Path="/5F8674B3/603D5276" Ref="#PWR?"  Part="1" 
 AR Path="/603D5276" Ref="#PWR?"  Part="1" 
-AR Path="/603CE165/603D5276" Ref="#PWR03"  Part="1" 
-F 0 "#PWR03" H 9000 3200 50  0001 C CNN
+AR Path="/603CE165/603D5276" Ref="#PWR05"  Part="1" 
+F 0 "#PWR05" H 9000 3200 50  0001 C CNN
 F 1 "+3.3V" H 9015 3523 50  0000 C CNN
 F 2 "" H 9000 3350 50  0001 C CNN
 F 3 "" H 9000 3350 50  0001 C CNN
@@ -92,6 +112,11 @@ F 0 "SW5" H 5200 2831 50  0000 C CNN
 F 1 "Select" H 5200 2740 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 5200 2750 50  0001 C CNN
 F 3 "~" H 5200 2750 50  0001 C CNN
+F 4 "C318884" H 5200 2550 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 5200 2550 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 5200 2550 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 5200 2550 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 5200 2550 50  0001 C CNN "Notes"
 	1    5200 2550
 	1    0    0    -1  
 $EndComp
@@ -103,6 +128,11 @@ F 0 "SW7" H 7350 4781 50  0000 C CNN
 F 1 "B" H 7350 4690 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 7350 4700 50  0001 C CNN
 F 3 "~" H 7350 4700 50  0001 C CNN
+F 4 "C318884" H 7350 4500 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 7350 4500 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 7350 4500 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 7350 4500 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 7350 4500 50  0001 C CNN "Notes"
 	1    7350 4500
 	1    0    0    -1  
 $EndComp
@@ -123,8 +153,8 @@ U 1 1 603D6F16
 P 9400 3350
 AR Path="/5F8674B3/603D6F16" Ref="#PWR?"  Part="1" 
 AR Path="/603D6F16" Ref="#PWR?"  Part="1" 
-AR Path="/603CE165/603D6F16" Ref="#PWR04"  Part="1" 
-F 0 "#PWR04" H 9400 3200 50  0001 C CNN
+AR Path="/603CE165/603D6F16" Ref="#PWR06"  Part="1" 
+F 0 "#PWR06" H 9400 3200 50  0001 C CNN
 F 1 "+3.3V" H 9415 3523 50  0000 C CNN
 F 2 "" H 9400 3350 50  0001 C CNN
 F 3 "" H 9400 3350 50  0001 C CNN
@@ -141,6 +171,11 @@ F 0 "SW8" H 7900 3731 50  0000 C CNN
 F 1 "A" H 7900 3640 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 7900 3650 50  0001 C CNN
 F 3 "~" H 7900 3650 50  0001 C CNN
+F 4 "C318884" H 7900 3450 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 7900 3450 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 7900 3450 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 7900 3450 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 7900 3450 50  0001 C CNN "Notes"
 	1    7900 3450
 	1    0    0    -1  
 $EndComp
@@ -161,8 +196,8 @@ U 1 1 603D7C4D
 P 9800 3350
 AR Path="/5F8674B3/603D7C4D" Ref="#PWR?"  Part="1" 
 AR Path="/603D7C4D" Ref="#PWR?"  Part="1" 
-AR Path="/603CE165/603D7C4D" Ref="#PWR05"  Part="1" 
-F 0 "#PWR05" H 9800 3200 50  0001 C CNN
+AR Path="/603CE165/603D7C4D" Ref="#PWR07"  Part="1" 
+F 0 "#PWR07" H 9800 3200 50  0001 C CNN
 F 1 "+3.3V" H 9815 3523 50  0000 C CNN
 F 2 "" H 9800 3350 50  0001 C CNN
 F 3 "" H 9800 3350 50  0001 C CNN
@@ -206,6 +241,11 @@ F 0 "SW6" H 6450 2750 50  0000 C CNN
 F 1 "Start" H 6500 2650 50  0000 C CNN
 F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 6200 2750 50  0001 C CNN
 F 3 "~" H 6200 2750 50  0001 C CNN
+F 4 "C318884" H 6200 2550 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 6200 2550 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 6200 2550 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 6200 2550 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 6200 2550 50  0001 C CNN "Notes"
 	1    6200 2550
 	1    0    0    -1  
 $EndComp
