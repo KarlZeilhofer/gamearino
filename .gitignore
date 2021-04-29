@@ -1,0 +1,8 @@
+
+*.sch-bak
+
+kicad/fp-info-cache
+
+kicad/gamearino-cache.lib
+
+kicad/gamearino.kicad_pcb-bak
