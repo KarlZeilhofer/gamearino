@@ -26,6 +26,8 @@ F 5 "LCSC" H 3500 3800 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 3500 3800 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 3500 3800 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 3500 3800 50  0001 C CNN "Notes"
+F 9 "0.0129" H 3500 3800 50  0001 C CNN "PriceEUR"
+F 10 "50" H 3500 3800 50  0001 C CNN "PriceForQty"
 	1    3500 3800
 	1    0    0    -1  
 $EndComp
@@ -42,6 +44,8 @@ F 5 "LCSC" H 2700 4500 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 2700 4500 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 2700 4500 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 2700 4500 50  0001 C CNN "Notes"
+F 9 "0.0129" H 2700 4500 50  0001 C CNN "PriceEUR"
+F 10 "50" H 2700 4500 50  0001 C CNN "PriceForQty"
 	1    2700 4500
 	1    0    0    -1  
 $EndComp
@@ -58,6 +62,8 @@ F 5 "LCSC" H 4300 4450 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 4300 4450 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 4300 4450 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 4300 4450 50  0001 C CNN "Notes"
+F 9 "0.0129" H 4300 4450 50  0001 C CNN "PriceEUR"
+F 10 "50" H 4300 4450 50  0001 C CNN "PriceForQty"
 	1    4300 4450
 	1    0    0    -1  
 $EndComp
@@ -74,6 +80,8 @@ F 5 "LCSC" H 3550 5450 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 3550 5450 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 3550 5450 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 3550 5450 50  0001 C CNN "Notes"
+F 9 "0.0129" H 3550 5450 50  0001 C CNN "PriceEUR"
+F 10 "50" H 3550 5450 50  0001 C CNN "PriceForQty"
 	1    3550 5450
 	1    0    0    -1  
 $EndComp
@@ -85,6 +93,13 @@ F 0 "R3" H 9070 3696 50  0000 L CNN
 F 1 "10k" H 9070 3605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 8930 3650 50  0001 C CNN
 F 3 "~" H 9000 3650 50  0001 C CNN
+F 4 "C103210" H 9000 3650 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 9000 3650 50  0001 C CNN "Distributor"
+F 6 "RTT03103JTP" H 9000 3650 50  0001 C CNN "ManPartNr"
+F 7 "RALEC" H 9000 3650 50  0001 C CNN "Manufacturer"
+F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 9000 3650 50  0001 C CNN "Notes"
+F 9 "0.0015" H 9000 3650 50  0001 C CNN "PriceEUR"
+F 10 "100" H 9000 3650 50  0001 C CNN "PriceForQty"
 	1    9000 3650
 	1    0    0    -1  
 $EndComp
@@ -117,6 +132,8 @@ F 5 "LCSC" H 5200 2550 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 5200 2550 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 5200 2550 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 5200 2550 50  0001 C CNN "Notes"
+F 9 "0.0129" H 5200 2550 50  0001 C CNN "PriceEUR"
+F 10 "50" H 5200 2550 50  0001 C CNN "PriceForQty"
 	1    5200 2550
 	1    0    0    -1  
 $EndComp
@@ -133,6 +150,8 @@ F 5 "LCSC" H 7350 4500 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 7350 4500 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 7350 4500 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 7350 4500 50  0001 C CNN "Notes"
+F 9 "0.0129" H 7350 4500 50  0001 C CNN "PriceEUR"
+F 10 "50" H 7350 4500 50  0001 C CNN "PriceForQty"
 	1    7350 4500
 	1    0    0    -1  
 $EndComp
@@ -144,6 +163,13 @@ F 0 "R4" H 9470 3696 50  0000 L CNN
 F 1 "10k" H 9470 3605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 9330 3650 50  0001 C CNN
 F 3 "~" H 9400 3650 50  0001 C CNN
+F 4 "C103210" H 9400 3650 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 9400 3650 50  0001 C CNN "Distributor"
+F 6 "RTT03103JTP" H 9400 3650 50  0001 C CNN "ManPartNr"
+F 7 "RALEC" H 9400 3650 50  0001 C CNN "Manufacturer"
+F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 9400 3650 50  0001 C CNN "Notes"
+F 9 "0.0015" H 9400 3650 50  0001 C CNN "PriceEUR"
+F 10 "100" H 9400 3650 50  0001 C CNN "PriceForQty"
 	1    9400 3650
 	1    0    0    -1  
 $EndComp
@@ -176,6 +202,8 @@ F 5 "LCSC" H 7900 3450 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 7900 3450 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 7900 3450 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 7900 3450 50  0001 C CNN "Notes"
+F 9 "0.0129" H 7900 3450 50  0001 C CNN "PriceEUR"
+F 10 "50" H 7900 3450 50  0001 C CNN "PriceForQty"
 	1    7900 3450
 	1    0    0    -1  
 $EndComp
@@ -187,6 +215,13 @@ F 0 "R5" H 9870 3696 50  0000 L CNN
 F 1 "10k" H 9870 3605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 9730 3650 50  0001 C CNN
 F 3 "~" H 9800 3650 50  0001 C CNN
+F 4 "C103210" H 9800 3650 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 9800 3650 50  0001 C CNN "Distributor"
+F 6 "RTT03103JTP" H 9800 3650 50  0001 C CNN "ManPartNr"
+F 7 "RALEC" H 9800 3650 50  0001 C CNN "Manufacturer"
+F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 9800 3650 50  0001 C CNN "Notes"
+F 9 "0.0015" H 9800 3650 50  0001 C CNN "PriceEUR"
+F 10 "100" H 9800 3650 50  0001 C CNN "PriceForQty"
 	1    9800 3650
 	1    0    0    -1  
 $EndComp
@@ -246,6 +281,8 @@ F 5 "LCSC" H 6200 2550 50  0001 C CNN "Distributor"
 F 6 "TS-1187A-B-A-B" H 6200 2550 50  0001 C CNN "ManPartNr"
 F 7 "XKB Connectivity" H 6200 2550 50  0001 C CNN "Manufacturer"
 F 8 "SMD Taster h=1.2/1.5mm" H 6200 2550 50  0001 C CNN "Notes"
+F 9 "0.0129" H 6200 2550 50  0001 C CNN "PriceEUR"
+F 10 "50" H 6200 2550 50  0001 C CNN "PriceForQty"
 	1    6200 2550
 	1    0    0    -1  
 $EndComp

@@ -25,9 +25,10 @@ F 4 "C82891" H 5750 3850 50  0001 C CNN "DistOrderNr"
 F 5 "LCSC" H 5750 3850 50  0001 C CNN "Distributor"
 F 6 "ESP-12F(ESP8266MOD)" H 5750 3850 50  0001 C CNN "ManPartNr"
 F 7 "Ai-Thinker" H 5750 3850 50  0001 C CNN "Manufacturer"
-F 8 "1.24" H 5750 3850 50  0001 C CNN "PriceEUR"
-F 9 "100" H 5750 3850 50  0001 C CNN "PriceForQty"
+F 8 "1.243" H 5750 3850 50  0001 C CNN "PriceEUR"
+F 9 "10" H 5750 3850 50  0001 C CNN "PriceForQty"
 F 10 "https://lcsc.com/product-detail/WiFi-Modules_Ai-Thinker-ESP-12F-ESP8266MOD_C82891.html" H 5750 3850 50  0001 C CNN "Weblink"
+F 11 "Mikrocontroller, 32 Bit, WLAN, 3.3V, 4MB Flash" H 5750 3850 50  0001 C CNN "Notes"
 	1    5750 3850
 	1    0    0    -1  
 $EndComp
@@ -111,6 +112,13 @@ F 0 "R1" H 4970 3146 50  0000 L CNN
 F 1 "10k" H 4970 3055 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 4830 3100 50  0001 C CNN
 F 3 "~" H 4900 3100 50  0001 C CNN
+F 4 "C103210" H 4900 3100 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 4900 3100 50  0001 C CNN "Distributor"
+F 6 "RTT03103JTP" H 4900 3100 50  0001 C CNN "ManPartNr"
+F 7 "RALEC" H 4900 3100 50  0001 C CNN "Manufacturer"
+F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 4900 3100 50  0001 C CNN "Notes"
+F 9 "0.0015" H 4900 3100 50  0001 C CNN "PriceEUR"
+F 10 "100" H 4900 3100 50  0001 C CNN "PriceForQty"
 	1    4900 3100
 	1    0    0    -1  
 $EndComp
@@ -154,6 +162,13 @@ F 0 "R2" H 6420 5396 50  0000 L CNN
 F 1 "10k" H 6420 5305 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 6280 5350 50  0001 C CNN
 F 3 "~" H 6350 5350 50  0001 C CNN
+F 4 "C103210" H 6350 5350 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 6350 5350 50  0001 C CNN "Distributor"
+F 6 "RTT03103JTP" H 6350 5350 50  0001 C CNN "ManPartNr"
+F 7 "RALEC" H 6350 5350 50  0001 C CNN "Manufacturer"
+F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 6350 5350 50  0001 C CNN "Notes"
+F 9 "0.0015" H 6350 5350 50  0001 C CNN "PriceEUR"
+F 10 "100" H 6350 5350 50  0001 C CNN "PriceForQty"
 	1    6350 5350
 	1    0    0    -1  
 $EndComp
@@ -342,7 +357,7 @@ L htl_virtual:Item Item6
 U 1 1 6046A8BB
 P 800 7400
 F 0 "Item6" H 930 7446 50  0000 L CNN
-F 1 "PCB: Abmessungen?, 2 Layer, 35u Cu, d1,6mm" H 930 7355 50  0000 L CNN
+F 1 "PCB: 60x56mm, 2 Layer, 35um Cu, d1,6mm" H 930 7355 50  0000 L CNN
 F 2 "" H 800 7330 50  0001 C CNN
 F 3 "~" V 800 7400 50  0001 C CNN
 	1    800  7400
@@ -353,7 +368,7 @@ L htl_virtual:Item Item7
 U 1 1 6046ADE9
 P 800 7600
 F 0 "Item7" H 930 7646 50  0000 L CNN
-F 1 "SMD-Schablone: 120um, Edelstahl, 25mm Umlaufender Überstand" H 930 7555 50  0000 L CNN
+F 1 "SMD-Schablone: 120um, Edelstahl, 25mm Umlaufender Überstand, Pastenreduktion 30um im PCB-Design" H 930 7555 50  0000 L CNN
 F 2 "" H 800 7530 50  0001 C CNN
 F 3 "~" V 800 7600 50  0001 C CNN
 	1    800  7600
