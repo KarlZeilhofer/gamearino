@@ -597,11 +597,11 @@ F 0 "R9" V 2293 2800 50  0000 C CNN
 F 1 "5k1" V 2384 2800 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2430 2800 50  0001 C CNN
 F 3 "https://datasheet.lcsc.com/szlcsc/Uniroyal-Elec-0603WAJ0101T5E_C25201.pdf" H 2500 2800 50  0001 C CNN
-F 4 "C25201" H 2500 2800 50  0001 C CNN "DistOrderNr"
+F 4 "C150387" H 2500 2800 50  0001 C CNN "DistOrderNr"
 F 5 "LCSC" H 2500 2800 50  0001 C CNN "Distributor"
-F 6 "0603WAJ0101T5E" H 2500 2800 50  0001 C CNN "ManPartNr"
-F 7 "UNI-ROYAL" H 2500 2800 50  0001 C CNN "Manufacturer"
-F 8 "100R, 5%, 100mW" H 2500 2800 50  0001 C CNN "Notes"
+F 6 "CR16-512FV" H 2500 2800 50  0001 C CNN "ManPartNr"
+F 7 "HDK(Hokuriku Elec Industry)" H 2500 2800 50  0001 C CNN "Manufacturer"
+F 8 "5k1, 1%, 100mW, 1608" H 2500 2800 50  0001 C CNN "Notes"
 F 9 "0.000563" H 2500 2800 50  0001 C CNN "PriceEUR"
 F 10 "1000" H 2500 2800 50  0001 C CNN "PriceForQty"
 F 11 "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_UNI-ROYAL-Uniroyal-Elec-0603WAJ0101T5E_C25201.html" H 2500 2800 50  0001 C CNN "Weblink"
@@ -623,11 +623,11 @@ F 0 "R10" V 2293 2900 50  0000 C CNN
 F 1 "5k1" V 2384 2900 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" V 2430 2900 50  0001 C CNN
 F 3 "https://datasheet.lcsc.com/szlcsc/Uniroyal-Elec-0603WAJ0101T5E_C25201.pdf" H 2500 2900 50  0001 C CNN
-F 4 "C25201" H 2500 2900 50  0001 C CNN "DistOrderNr"
+F 4 "C150387" H 2500 2900 50  0001 C CNN "DistOrderNr"
 F 5 "LCSC" H 2500 2900 50  0001 C CNN "Distributor"
-F 6 "0603WAJ0101T5E" H 2500 2900 50  0001 C CNN "ManPartNr"
-F 7 "UNI-ROYAL" H 2500 2900 50  0001 C CNN "Manufacturer"
-F 8 "100R, 5%, 100mW" H 2500 2900 50  0001 C CNN "Notes"
+F 6 "CR16-512FV" H 2500 2900 50  0001 C CNN "ManPartNr"
+F 7 "HDK(Hokuriku Elec Industry)" H 2500 2900 50  0001 C CNN "Manufacturer"
+F 8 "5k1, 1%, 100mW, 1608" H 2500 2900 50  0001 C CNN "Notes"
 F 9 "0.000563" H 2500 2900 50  0001 C CNN "PriceEUR"
 F 10 "1000" H 2500 2900 50  0001 C CNN "PriceForQty"
 F 11 "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_UNI-ROYAL-Uniroyal-Elec-0603WAJ0101T5E_C25201.html" H 2500 2900 50  0001 C CNN "Weblink"
