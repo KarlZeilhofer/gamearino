@@ -5,6 +5,8 @@ Elektronisches Spielgerät mit
 * OLED-Display mit 128x64 Pixel
 * Controller: ESP8266EX (Modul ESP-12F)
 
+![](screenshots/3d_v0.02.png)
+
 # OLED
 wurde getestet mit dem Arduino Nano mit der Adafruit-Lib. Weil wir keinen Reset-Pin haben, 
 muss das Display etwas anders initialisiert werden: 
