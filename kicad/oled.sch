@@ -5904,7 +5904,7 @@ Wire Wire Line
 Connection ~ 4050 5050
 Connection ~ 4050 5450
 $Comp
-L Diode:BAV99 D1
+L gamearino-rescue:BAV99-Diode D1
 U 1 1 603B5519
 P 4050 5250
 F 0 "D1" V 4004 5329 50  0000 L CNN
