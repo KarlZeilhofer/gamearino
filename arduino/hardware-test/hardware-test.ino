@@ -99,49 +99,49 @@ void setup() {
   Serial.print("Press DOWN...");
   do{
     buttonDown.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonDown.state == Button::Released);
   Serial.println("OK");
 
   Serial.print("Press LEFT...");
   do{
     buttonLeft.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonLeft.state == Button::Released);
   Serial.println("OK");
 
   Serial.print("Press RIGHT...");
   do{
     buttonRight.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonRight.state == Button::Released);
   Serial.println("OK");
 
   Serial.print("Press SELECT...");
   do{
     buttonSelect.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonSelect.state == Button::Released);
   Serial.println("OK");
 
   Serial.print("Press START...");
   do{
     buttonStart.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonStart.state == Button::Released);
   Serial.println("OK");
 
   Serial.print("Press A...");
   do{
     buttonA.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonA.state == Button::Released);
   Serial.println("OK");
 
   Serial.print("Press B...");
   do{
     buttonB.read();
-    yield(); // reset watchdog timer
+    delay(1); // reset watchdog timer
   }while(buttonB.state == Button::Released);
   Serial.println("OK");
 

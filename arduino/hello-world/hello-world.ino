@@ -25,6 +25,7 @@
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
+  Serial.println("Gamearino - Hello World Demo");
 }
 
 // the loop function runs over and over again forever
