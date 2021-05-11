@@ -58,6 +58,15 @@ Changelog Gamearino
 * Gehäusedeckel probegedruckt
 * Deckel-Boden-Paarung: mit 0.2mm-Nut, und identischen Konturen passt es perfekt zusammen
 * 3D-Druckteile auf 0.2mm Schichthöhe optimiert (außer Steuerkreuz)
+* Deckel V2: 
+  * Displayausschnitt nach oben geschoben und rundherum um 1mm vergrößert
+  * Senkung für Steuerkreuz von 0,4 auf 0,6mm vergrößert (Steuerkreuz spießt sich bisher)
+  * Versionskerben
+  * ESP-Senkung mit 0.6 mm (der ist minimal dicker als 2.8 mm)
+* Boden V3: 
+  * Montage-Sockeln: Stutzen von Durchmesser 3.0 auf 3.2 mm vergrößert
+  * Versionskerben
+  * Senkungen für Steuerkreuz und A-Taster im Gehäuserand
 ## TODOs
 * Gehäuse dokumentieren
 
