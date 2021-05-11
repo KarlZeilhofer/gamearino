@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 5
 Title "Gamearino"
-Date "2021-04-29"
-Rev "V0.0.2"
+Date "2021-05-11"
+Rev "V20.0.3"
 Comp "HTL-Steyr"
 Comment1 "4ABHEL, 2020/2021"
 Comment2 "Hosted by Prof. Karl Zeilhofer"

@@ -1,3 +1,5 @@
+* Bei der Bestückung wurden soll 10k mit ist 12k bestückt, weil keine 10k vorhanden waren. 
+* Statt der BAV99 wurde ein NPN-Transistor verwendet für den OLED-Reset. 
 
 * Kurzschluss beim USB-C - Pin in Paste noch suboptimal?
   Pastenauftrag war leicht verschmiert. 

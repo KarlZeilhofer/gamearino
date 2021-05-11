@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 5
 Title "Gamearino"
-Date "2021-04-29"
-Rev "V0.0.2"
+Date "2021-05-11"
+Rev "V20.0.3"
 Comp "HTL-Steyr"
 Comment1 "4ABHEL, 2020/2021"
 Comment2 "Hosted by Prof. Karl Zeilhofer"
@@ -33,7 +33,7 @@ F 11 "Mikrocontroller, 32 Bit, WLAN, 3.3V, 4MB Flash" H 5750 3850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 5950 2300 0    50   ~ 0
-GPIO0 - Bootmode: \nlow=bootloader, \nhigh=flashboot
+GPIO0 - Bootmode: \nlow=bootloader, \nhigh=boot firmware
 Wire Wire Line
 	6300 3350 6500 3350
 Wire Wire Line
@@ -105,43 +105,43 @@ Wire Wire Line
 $Comp
 L Device:R R?
 U 1 1 60405618
-P 4900 3100
+P 4900 2750
 AR Path="/603CE165/60405618" Ref="R?"  Part="1" 
 AR Path="/60405618" Ref="R1"  Part="1" 
-F 0 "R1" H 4970 3146 50  0000 L CNN
-F 1 "10k" H 4970 3055 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4830 3100 50  0001 C CNN
-F 3 "~" H 4900 3100 50  0001 C CNN
-F 4 "C103210" H 4900 3100 50  0001 C CNN "DistOrderNr"
-F 5 "LCSC" H 4900 3100 50  0001 C CNN "Distributor"
-F 6 "RTT03103JTP" H 4900 3100 50  0001 C CNN "ManPartNr"
-F 7 "RALEC" H 4900 3100 50  0001 C CNN "Manufacturer"
-F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 4900 3100 50  0001 C CNN "Notes"
-F 9 "0.0015" H 4900 3100 50  0001 C CNN "PriceEUR"
-F 10 "100" H 4900 3100 50  0001 C CNN "PriceForQty"
-	1    4900 3100
+F 0 "R1" H 4970 2796 50  0000 L CNN
+F 1 "10k" H 4970 2705 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4830 2750 50  0001 C CNN
+F 3 "~" H 4900 2750 50  0001 C CNN
+F 4 "C103210" H 4900 2750 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 4900 2750 50  0001 C CNN "Distributor"
+F 6 "RTT03103JTP" H 4900 2750 50  0001 C CNN "ManPartNr"
+F 7 "RALEC" H 4900 2750 50  0001 C CNN "Manufacturer"
+F 8 "10kΩ ±5% 0.1W ±100ppm/℃" H 4900 2750 50  0001 C CNN "Notes"
+F 9 "0.0015" H 4900 2750 50  0001 C CNN "PriceEUR"
+F 10 "100" H 4900 2750 50  0001 C CNN "PriceForQty"
+	1    4900 2750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	5200 3550 4900 3550
 Wire Wire Line
-	4900 3550 4900 3250
+	4900 3550 4900 2900
 $Comp
 L power:+3.3V #PWR?
 U 1 1 60406C3E
-P 4900 2850
+P 4900 2500
 AR Path="/5F8674B3/60406C3E" Ref="#PWR?"  Part="1" 
 AR Path="/60406C3E" Ref="#PWR02"  Part="1" 
 AR Path="/603FCB6F/60406C3E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR02" H 4900 2700 50  0001 C CNN
-F 1 "+3.3V" H 4915 3023 50  0000 C CNN
-F 2 "" H 4900 2850 50  0001 C CNN
-F 3 "" H 4900 2850 50  0001 C CNN
-	1    4900 2850
+F 0 "#PWR02" H 4900 2350 50  0001 C CNN
+F 1 "+3.3V" H 4915 2673 50  0000 C CNN
+F 2 "" H 4900 2500 50  0001 C CNN
+F 3 "" H 4900 2500 50  0001 C CNN
+	1    4900 2500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4900 2850 4900 2950
+	4900 2500 4900 2600
 Wire Wire Line
 	7100 3850 6300 3850
 Wire Wire Line
@@ -151,8 +151,8 @@ S 7100 3750 950  550
 U 5F8674B3
 F0 "OLED 128x64" 50
 F1 "oled.sch" 50
-F2 "SDA" B L 7100 3850 50 
-F3 "SCL" B L 7100 4000 50 
+F2 "SDA" B L 7100 4000 50 
+F3 "SCL" B L 7100 3850 50 
 $EndSheet
 $Comp
 L Device:R R2
@@ -291,7 +291,7 @@ Wire Wire Line
 Wire Wire Line
 	5200 4250 5200 4050
 NoConn ~ 5200 3450
-Text Notes 4000 2550 0    50   ~ 0
+Text Notes 4000 2200 0    50   ~ 0
 Enable Pin:\nmuss über 10k auf 3V3 liegen
 Text Notes 6650 5450 0    50   ~ 0
 GPIO15:\nmuss beim Booten über 10k\nauf GND liegen. Dann kann er\nverwendet werden. 
@@ -395,8 +395,6 @@ NoConn ~ 5700 4450
 NoConn ~ 5800 4450
 NoConn ~ 5900 4450
 NoConn ~ 6000 4450
-Text Notes 3750 5700 0    50   ~ 0
-TODO: Taster ausprobieren
 Text Label 5000 3550 0    30   ~ 0
 EN
 $Comp
@@ -421,4 +419,75 @@ F 3 "~" H 9500 6000 50  0001 C CNN
 	1    9500 6000
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:C C13
+U 1 1 60A4C04A
+P 3550 3650
+F 0 "C13" V 3298 3650 50  0000 C CNN
+F 1 "DNP" V 3389 3650 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3588 3500 50  0001 C CNN
+F 3 "~" H 3550 3650 50  0001 C CNN
+	1    3550 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 3500 3550 3150
+$Comp
+L power:GND #PWR?
+U 1 1 60A4D273
+P 3550 3900
+AR Path="/5F8674B3/60A4D273" Ref="#PWR?"  Part="1" 
+AR Path="/60A4D273" Ref="#PWR037"  Part="1" 
+F 0 "#PWR037" H 3550 3650 50  0001 C CNN
+F 1 "GND" H 3554 3745 50  0000 C CNN
+F 2 "" H 3550 3900 50  0001 C CNN
+F 3 "" H 3550 3900 50  0001 C CNN
+	1    3550 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 3900 3550 3800
+$Comp
+L Switch:SW_Push_45deg SW?
+U 1 1 60A50E09
+P 3200 3250
+AR Path="/603CE165/60A50E09" Ref="SW?"  Part="1" 
+AR Path="/60A50E09" Ref="SW9"  Part="1" 
+F 0 "SW9" V 3246 3393 50  0000 L CNN
+F 1 "Reset" V 3155 3393 50  0000 L CNN
+F 2 "htl_smd:SW_Push_5.1mm_H1.5mm" H 3200 3450 50  0001 C CNN
+F 3 "~" H 3200 3450 50  0001 C CNN
+F 4 "C318884" H 3200 3250 50  0001 C CNN "DistOrderNr"
+F 5 "LCSC" H 3200 3250 50  0001 C CNN "Distributor"
+F 6 "TS-1187A-B-A-B" H 3200 3250 50  0001 C CNN "ManPartNr"
+F 7 "XKB Connectivity" H 3200 3250 50  0001 C CNN "Manufacturer"
+F 8 "SMD Taster h=1.2/1.5mm" H 3200 3250 50  0001 C CNN "Notes"
+F 9 "0.0129" H 3200 3250 50  0001 C CNN "PriceEUR"
+F 10 "50" H 3200 3250 50  0001 C CNN "PriceForQty"
+	1    3200 3250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3550 3150 5100 3150
+Connection ~ 5100 3150
+Text Label 4500 3150 0    50   ~ 0
+~RESET
+Wire Wire Line
+	3300 3150 3550 3150
+Connection ~ 3550 3150
+$Comp
+L power:GND #PWR?
+U 1 1 60A56409
+P 3100 3900
+AR Path="/5F8674B3/60A56409" Ref="#PWR?"  Part="1" 
+AR Path="/60A56409" Ref="#PWR041"  Part="1" 
+F 0 "#PWR041" H 3100 3650 50  0001 C CNN
+F 1 "GND" H 3104 3745 50  0000 C CNN
+F 2 "" H 3100 3900 50  0001 C CNN
+F 3 "" H 3100 3900 50  0001 C CNN
+	1    3100 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 3900 3100 3350
 $EndSCHEMATC
