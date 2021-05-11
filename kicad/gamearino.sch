@@ -368,7 +368,7 @@ L htl_virtual:Item Item7
 U 1 1 6046ADE9
 P 800 7600
 F 0 "Item7" H 930 7646 50  0000 L CNN
-F 1 "SMD-Schablone: 120um, Edelstahl, 25mm Umlaufender Überstand, Pastenreduktion 30um im PCB-Design" H 930 7555 50  0000 L CNN
+F 1 "SMD-Schablone: 120um, Edelstahl, 35mm Umlaufender Überstand, Pastenreduktion 30um im PCB-Design" H 930 7555 50  0000 L CNN
 F 2 "" H 800 7530 50  0001 C CNN
 F 3 "~" V 800 7600 50  0001 C CNN
 	1    800  7600
