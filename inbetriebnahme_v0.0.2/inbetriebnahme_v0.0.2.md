@@ -6,9 +6,18 @@
   Wurde durch drehen um 120° und mit Drahtbrücke gelöst. 
   --> MCU Ist nun programmierbar. 
 
-* OLED Beschaltung optimiert, siehe Screenshot. 
+* OLED Beschaltung optimiert, siehe Screenshot:
+  * R17 überbrückt
+  * Kathode der Diode auf 3.3V gehängt. 
 
-* Fehler in OLED-Pin-Reihenfolge muss noch getauscht werden. 
+* Fehler in OLED-Pin-Reihenfolge wurde durch Kupferlackdraht und Skalpell behoben
+
+* SDA und SCL sind im Schaltplan falsch am OLED-Display angeschlossen: 
+  IST: 19+20=SCL, 18=SDA
+  SOLL: 18 = SCL, 19+20 = SDA
+
+* SCL und SDA wurde in Software ausgetauscht:
+  Richtig ist nun: Wire.begin(14, 2) // SDA, SCL
 
 
 

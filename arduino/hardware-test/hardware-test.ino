@@ -169,7 +169,7 @@ void displayTest() {
   display.clearDisplay();
 
 
-  Wire.begin(2, 14); // SDA, SCL
+  Wire.begin(14, 2); // SDA, SCL
 
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C, false, false)) {
