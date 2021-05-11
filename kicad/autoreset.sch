@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 5
 Title "Gamearino"
-Date "2021-04-29"
-Rev "V0.0.2"
+Date "2021-05-11"
+Rev "V20.0.3"
 Comp "HTL-Steyr"
 Comment1 "4ABHEL, 2020/2021"
 Comment2 "Hosted by Prof. Karl Zeilhofer"
@@ -96,7 +96,7 @@ F 10 "100" H 4500 4050 50  0001 C CNN "PriceForQty"
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:Q_NPN_BCE Q?
+L Device:Q_NPN_BEC Q?
 U 1 1 603FFF39
 P 5200 4050
 AR Path="/603FFF39" Ref="Q?"  Part="1" 
@@ -116,7 +116,7 @@ F 10 "50" H 5200 4050 50  0001 C CNN "PriceForQty"
 	1    0    0    1   
 $EndComp
 $Comp
-L Device:Q_NPN_BCE Q?
+L Device:Q_NPN_BEC Q?
 U 1 1 603FFF3F
 P 5200 3150
 AR Path="/603FFF3F" Ref="Q?"  Part="1" 
@@ -136,7 +136,7 @@ F 10 "50" H 5200 3150 50  0001 C CNN "PriceForQty"
 	1    0    0    -1  
 $EndComp
 Text HLabel 6550 2950 2    50   Output ~ 0
-Reset
+~RESET
 Text HLabel 6550 4350 2    50   Output ~ 0
 GPIO0
 Text HLabel 3600 3150 0    50   Input ~ 0

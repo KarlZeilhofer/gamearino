@@ -37,6 +37,20 @@ Changelog Gamearino
 * Power-LED hinzugefügt (Doppel LED, rot aktiv)
 * Bestellung 3 Stk. bei Multi-CB inkl. SMD-Schablone mit 120um
 
+## V20.0.3 Bugfixes für Erste Serienfertigung
+* Reset-Taster hinzugefügt
+* DNP Footprint für Kondensator am Reset-Pin
+* OLED-Beschaltung korrigiert
+* OLED Footprint korrigiert
+* NPN Pinnummerierung korrigiert
+* 0.7mm-Löcher bei der OLED-Flex-PCB
+* Pulldown auf Pin 15 durch fix GND ersetzt
+* SDA/SCL richtig gestell
+* Gerber Export
+* HTML-BOM Export
+* Durchgehend V20.0.3
+
+
 # 3D-Druck
 * Steuerkreuz: Unterkante von 1.8mm auf Niveau +1.6mm abgesenkt, Haltering bleibt oben +2.8mm
 * Gehäuseboden gestaltet
@@ -51,6 +65,7 @@ Changelog Gamearino
 # Spiele
 ## Snake
 * Grundsätzliche Funktion vorhanden
+* Button-Klasse in Hardware-Test implementiert
 * TODO: Highscore
 * TODO: Asynchrones Warten und Tasten einlesen
 
