@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "5.1.9-73d0e3b20d~88~ubuntu20.04.1"
+      "Version":     "5.1.10-88a1d61d58~88~ubuntu20.04.1"
     },
-    "CreationDate":  "2021-04-29T21:08:44+02:00"
+    "CreationDate":  "2021-05-11T13:31:27+02:00"
   },
   "GeneralSpecs":
   {
@@ -15,7 +15,7 @@
     {
       "Name": "gamearino",
       "GUID": "67616d65-6172-4696-9e6f-2e6b69636164",
-      "Revision": "v0.0.1"
+      "Revision": "v20.0.3"
     },
     "Size":
     {

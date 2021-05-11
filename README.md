@@ -22,7 +22,7 @@ Die I2C-Adresse jedenfalls ist 0x3c anstatt 0x3d (Default aus Example Code).
   #define SCREEN_ADDRESS 0x3c
 
   I2C-Schnittstelle auf GPIO2 und GPIO14 festlegen:
-  Wire.begin(2,14); // SDA, SCL
+  Wire.begin(14,2); // SDA, SCL
 
 
 # Links

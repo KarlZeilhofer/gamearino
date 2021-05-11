@@ -136,7 +136,7 @@ F 10 "50" H 5200 3150 50  0001 C CNN "PriceForQty"
 	1    0    0    -1  
 $EndComp
 Text HLabel 6550 2950 2    50   Output ~ 0
-Reset
+~RESET
 Text HLabel 6550 4350 2    50   Output ~ 0
 GPIO0
 Text HLabel 3600 3150 0    50   Input ~ 0
