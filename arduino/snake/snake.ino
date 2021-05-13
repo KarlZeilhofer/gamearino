@@ -1,6 +1,21 @@
 // License: GPL v2
 // Authors: some students from HTBLA Steyr, Austria
 
+/*
+ * Features:
+ * Lenken mit Steuerkreuz
+ * Äpfel fressen
+ * Schlange wird pro Apfel um eins länger
+ * Geschwindigkeit wird mit jedem Apfel erhöht
+ *
+ *
+ * TODOs:
+ * Bugfix, Spiel wird nach 25 Punkten beendet
+ * Highscore Liste im ESP-Flash ablegen
+ * Punktestand nach Spielende anzeigen
+ * Möglichkeit des Pausierens
+ */
+
 
 #include <stdlib.h>
 #include <time.h>
@@ -21,7 +36,6 @@ typedef struct point {
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
 
-#define SEGMENT_TIME 500//Zeit bis 1 Segment vorwärts
 #define SEGMENT_SIZE 3
 #define START_LEN 3
 #define FIELD_SIZE_X 32
@@ -53,6 +67,8 @@ point eatPos;
 
 enum Direction{UP, DOWN, LEFT, RIGHT};
 Direction direction;
+#define START_DELAY 500
+uint32_t moveDelay=START_DELAY; // start delay in ms
 
 
 void setup() {
@@ -93,7 +109,7 @@ void startGame() {
     printTime();
     gameRunning = true;
     starttime = millis() / 1000;
-
+    moveDelay = START_DELAY;
 }
 void printWelcomeScreen() {
     display.clearDisplay();
@@ -224,18 +240,15 @@ void loop() {
             gameRunning = false;
             checkHighscore();
             printWelcomeScreen();
-
-
             return;
-
         }
 
         if (snake[headindex].x == eatPos.x && snake[headindex].y == eatPos.y) {
             newEat();
             len++;
+            moveDelay = 3000/(len+3); // increase speed with length of snake
             printScore();
             display.drawRect(eatPos.x * SEGMENT_SIZE + 1, eatPos.y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
-
         }
 
         display.drawRect(snake[headindex].x * SEGMENT_SIZE + 1, snake[headindex].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
@@ -254,7 +267,7 @@ void loop() {
         printTime();
         display.display(); // daten auf display schreiben.
 
-        while(millis() < now+SEGMENT_TIME){
+        while(millis() < now+moveDelay){
             buttons.readAll();
         }
     }
@@ -336,16 +349,12 @@ void printTime() {
 
     display.setTextColor(BLACK);
     display.setCursor(98, 55);
-
-
-    display.println(oldtime);
+    display.println(oldtime); // clear old value from display memory
 
     oldtime = millis() / 1000 - starttime;
     display.setTextColor(WHITE);
     display.setCursor(98, 55);
-
-
-    display.println(oldtime);
+    display.println(oldtime); // print new time
 }
 
 void initializeSnake() {
