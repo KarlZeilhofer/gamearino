@@ -107,3 +107,20 @@ void Buttons::readAll()
     select->read();
     start->read();
 }
+
+void Buttons::clearAllEvents()
+{
+    left->clearEvents();
+    right->clearEvents();
+    up->clearEvents();
+    down->clearEvents();
+    a->clearEvents();
+    b->clearEvents();
+    select->clearEvents();
+    start->clearEvents();
+}
+
+void Button::clearEvents()
+{
+    event = NoEvent;
+}

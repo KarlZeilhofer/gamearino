@@ -28,10 +28,13 @@
 #include "button.h"
 
 
-typedef struct point {
-    uint8_t x;
-    uint8_t y;
-} point;
+struct Point {
+    Point();
+    Point(int8_t x, int8_t y);
+    bool operator == (Point rhs);
+    int8_t x;
+    int8_t y;
+};
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
@@ -49,7 +52,7 @@ typedef struct point {
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-point snake[ARR_LEN] = {0};
+Point snake[ARR_LEN] = {Point(0,0)};
 
 uint16_t headindex;
 uint16_t len = START_LEN;
@@ -60,7 +63,7 @@ bool inLeaderboard = false;
 uint8_t selectedOption = 0;
 uint16_t oldtime; // seconds
 uint16_t starttime; // seconds
-point eatPos;
+Point eatPos;
 
 #define LOGO_HEIGHT   16
 #define LOGO_WIDTH    16
@@ -73,7 +76,8 @@ uint32_t moveDelay=START_DELAY; // start delay in ms
 
 void setup() {
 
-    Serial.begin(9600);
+    Serial.begin(115200);
+    Serial.println("Welcome to SNAKE on Gamearino");
     Wire.begin(14,2); // SDA, SCL
 
     // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
@@ -99,6 +103,7 @@ void setup() {
 
 
 void startGame() {
+    Serial.println("startGame");
     highscore = EEPROM.read(0);
 
     display.clearDisplay();
@@ -182,7 +187,6 @@ void printLeaderBoard() {
             display.setCursor(85, (i * 10) + 12);
             display.println(ui16);
         }
-
     }
 
     display.display();
@@ -236,6 +240,7 @@ void loop() {
         control();
 
         if (bodyCross() || borderCross()) {
+            stateDump();
 
             gameRunning = false;
             checkHighscore();
@@ -358,6 +363,7 @@ void printTime() {
 }
 
 void initializeSnake() {
+    Serial.println(__func__);
 
     len = START_LEN;
     headindex = 2;
@@ -419,7 +425,7 @@ void newEat() {
     } while (isInSnake(eatPos));
 }
 
-bool isInSnake(point pt) {
+bool isInSnake(Point pt) {
     for (uint16_t i = 1; i < len; i++) {
         if (i > headindex) {
             if (pt.x == snake[ARR_LEN - (i - headindex)].x && pt.y == snake[headindex - i].y) {
@@ -436,7 +442,7 @@ bool isInSnake(point pt) {
 
 bool bodyCross() {
 
-    point pt;
+    Point pt;
     pt.x = snake[headindex].x;
     pt.y = snake[headindex].y;
     return isInSnake(pt);
@@ -448,4 +454,78 @@ bool borderCross() {
         return true;
     }
     return false;
+}
+
+void stateDump(){
+    for(int i=0; i<ARR_LEN; i++){
+        Serial.println("snake[" + String(i) + "] = (" + String(snake[i].x) + "/" + String(snake[i].y) + ")");
+    }
+
+    Serial.print("headindex: " + String(headindex));
+    Serial.println(", length: " + String(headindex));
+
+    for(int x=-1; x<FIELD_SIZE_X+1; x++){
+        Serial.print("# ");
+    }
+    Serial.println();
+    for(int y=0; y<FIELD_SIZE_Y; y++){
+        Serial.print("# ");
+        for(int x=0; x<FIELD_SIZE_X; x++){
+            bool isInArray=false;
+            for(int i=0; i<ARR_LEN; i++){
+                if(snake[i].x == x && snake[i].y == y){
+                    isInArray = true;
+                    break;
+                }
+            }
+            if(isInArray){
+                if(isInSnake(Point(x,y))){
+                    if(snake[headindex] == Point(x,y)){
+                        Serial.print("H ");
+                    }else{
+                        Serial.print("+ ");
+                    }
+                }else{
+                    Serial.print(". ");
+                }
+            }else{
+                if(eatPos.x == x && eatPos.y == y){
+                    Serial.print("X ");
+                }else{
+                    Serial.print("  ");
+                }
+            }
+        }
+        Serial.println("# ");
+        delay(1);
+    }
+    for(int x=-1; x<FIELD_SIZE_X+1; x++){
+        Serial.print("# ");
+    }
+    Serial.println();
+
+    while(buttons.select->read() != Button::Pressed){
+        delay(1);
+    }
+}
+
+Point::Point()
+{
+    x=0;
+    y=0;
+}
+
+Point::Point(int8_t x, int8_t y)
+    :x(x), y(y)
+{
+
+}
+
+bool Point::operator ==(Point rhs)
+{
+    if(x == rhs.x && y == rhs.y){
+        return true;
+    }else{
+        return false;
+    }
 }
