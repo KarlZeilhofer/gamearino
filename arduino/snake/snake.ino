@@ -59,6 +59,7 @@ uint16_t len = START_LEN;
 uint8_t score = 0;
 uint8_t highscore = 0;
 bool gameRunning = false;
+bool gamePaused = false;
 bool inLeaderboard = false;
 uint8_t selectedOption = 0;
 uint16_t oldtime; // seconds
@@ -75,8 +76,8 @@ uint32_t moveDelay=START_DELAY; // start delay in ms
 
 
 void setup() {
-
     Serial.begin(115200);
+    delay(100);
     Serial.println("Welcome to SNAKE on Gamearino");
     Wire.begin(14,2); // SDA, SCL
 
@@ -235,20 +236,30 @@ void loop() {
 
 
     if (gameRunning) {
+        if(buttons.start->getEvent() == Button::PressedEvent){
+            gamePaused = !gamePaused;
+
+            if(!gamePaused){
+                repaintField();
+            }
+        }
+
         uint32_t now = millis();
 
-        control();
+        if(!gamePaused){
+            control();
 
-        if (bodyCross() || borderCross()) {
+            if (bodyCross() || borderCross()) {
             stateDump();
 
             gameRunning = false;
             checkHighscore();
-            printWelcomeScreen();
-            return;
+                printWelcomeScreen();
+                return;
+            }
         }
 
-        if (snake[headindex].x == eatPos.x && snake[headindex].y == eatPos.y) {
+        if (snake[headindex] == eatPos) {
             newEat();
             len++;
             moveDelay = 3000/(len+3); // increase speed with length of snake
@@ -259,17 +270,27 @@ void loop() {
         display.drawRect(snake[headindex].x * SEGMENT_SIZE + 1, snake[headindex].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
 
         if (headindex < len) {
-            if (!(snake[ARR_LEN - (len - headindex)].x == snake[headindex].x && snake[ARR_LEN - (len - headindex)].y == snake[headindex].y)) {
-                display.drawRect(snake[ARR_LEN - (len - headindex)].x * SEGMENT_SIZE + 1, snake[ARR_LEN - (len - headindex)].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_BLACK);
+            if (!(snake[ARR_LEN - (len - headindex)] == snake[headindex])) {
+                display.drawRect(snake[ARR_LEN - (len - headindex)].x * SEGMENT_SIZE + 1,
+                        snake[ARR_LEN - (len - headindex)].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_BLACK);
             }
         } else {
-            if (!(snake[headindex - len].x == snake[headindex].x && snake[headindex - len].y == snake[headindex].y)) {
-                display.drawRect(snake[headindex - len].x * SEGMENT_SIZE + 1, snake[headindex - len].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_BLACK);
+            if (!(snake[headindex - len] == snake[headindex])) {
+                display.drawRect(snake[headindex - len].x * SEGMENT_SIZE + 1,
+                        snake[headindex - len].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_BLACK);
             }
         }
 
 
         printTime();
+
+        if(gamePaused){
+            display.setCursor(20, 30);
+            display.setTextColor(WHITE);
+            display.setTextSize(2);
+            display.println("PAUSE");
+        }
+
         display.display(); // daten auf display schreiben.
 
         while(millis() < now+moveDelay){
@@ -277,6 +298,21 @@ void loop() {
         }
     }
 }
+
+void repaintField(){
+    display.fillRect(1, 1, FIELD_SIZE_X*SEGMENT_SIZE-1, FIELD_SIZE_Y*SEGMENT_SIZE-1, SSD1306_BLACK);
+
+    int16_t ii = headindex;
+    for(int16_t i=0; i<len; i++){
+        display.drawRect(snake[ii].x * SEGMENT_SIZE + 1, snake[ii].y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
+        ii--;
+        if(ii<0){
+            ii = ARR_LEN-1;
+        }
+    }
+    display.drawRect(eatPos.x * SEGMENT_SIZE + 1, eatPos.y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
+}
+
 
 void checkHighscore() {
     uint16_t time = millis() / 1000 - starttime;
@@ -463,7 +499,7 @@ void stateDump(){
     }
 
     Serial.print("headindex: " + String(headindex));
-    Serial.println(", length: " + String(length));
+    Serial.println(", length: " + String(len));
 
     for(int x=-1; x<FIELD_SIZE_X+1; x++){
         Serial.print("# ");
