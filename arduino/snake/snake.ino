@@ -247,8 +247,8 @@ void loop() {
         }
 
         if (snake[headindex] == eatPos) {
-            newEat();
             len++;
+            newEat();
             moveDelay = 3000/(len+3); // increase speed with length of snake
             printScore();
             display.drawRect(eatPos.x * SEGMENT_SIZE + 1, eatPos.y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
