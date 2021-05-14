@@ -428,7 +428,8 @@ void newEat() {
 bool isInSnake(Point pt) {
     for (uint16_t i = 1; i < len; i++) {
         if (i > headindex) {
-            if (pt.x == snake[ARR_LEN - (i - headindex)].x && pt.y == snake[headindex - i].y) {
+            if (pt.x == snake[ARR_LEN - (i - headindex)].x &&
+                pt.y == snake[ARR_LEN - (i - headindex)].y) {
                 return true;
             }
         } else {
@@ -462,7 +463,7 @@ void stateDump(){
     }
 
     Serial.print("headindex: " + String(headindex));
-    Serial.println(", length: " + String(headindex));
+    Serial.println(", length: " + String(length));
 
     for(int x=-1; x<FIELD_SIZE_X+1; x++){
         Serial.print("# ");
