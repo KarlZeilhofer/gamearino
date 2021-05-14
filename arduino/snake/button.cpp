@@ -50,10 +50,8 @@ Button::State Button::read()
     uint32_t now = millis();
 
     if(in == LOW){ // if pressed
-        if((now+T_Bounce) >= tLastPressed && state == Released){
-            if(event == NoEvent){
-                event = PressedEvent;
-            }
+        if((now+T_Bounce) >= tLastReleased && state == Released){
+            event = PressedEvent;
             state = Pressed;
             tLastPressed = now;
         }

@@ -448,14 +448,18 @@ void control() {
         snake[headindex] = snake[headindex - 1];
     }
 
-    if(buttons.up->getEvent() == Button::PressedEvent && direction != DOWN){
+    if(buttons.up->peekEvent() == Button::PressedEvent && direction != DOWN){
         direction = UP;
-    }else if(buttons.down->getEvent() == Button::PressedEvent && direction != UP){
+        buttons.up->clearEvents();
+    }else if(buttons.down->peekEvent() == Button::PressedEvent && direction != UP){
         direction = DOWN;
-    }else if(buttons.left->getEvent() == Button::PressedEvent && direction != RIGHT){
+        buttons.down->clearEvents();
+    }else if(buttons.left->peekEvent() == Button::PressedEvent && direction != RIGHT){
         direction = LEFT;
-    }else if(buttons.right->getEvent() == Button::PressedEvent && direction != LEFT){
+        buttons.left->clearEvents();
+    }else if(buttons.right->peekEvent() == Button::PressedEvent && direction != LEFT){
         direction = RIGHT;
+        buttons.right->clearEvents();
     }
 
     switch (direction) {
