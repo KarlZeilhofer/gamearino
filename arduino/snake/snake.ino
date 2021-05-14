@@ -23,7 +23,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <EEPROM.h>
+#include <ESP_EEPROM.h>
 #include <stdint.h>
 #include "button.h"
 
@@ -60,7 +60,7 @@ uint8_t score = 0;
 uint8_t highscore = 0;
 bool gameRunning = false;
 bool gamePaused = false;
-bool inLeaderboard = false;
+bool inHighScore = false;
 uint8_t selectedOption = 0;
 uint16_t oldtime; // seconds
 uint16_t starttime; // seconds
@@ -89,14 +89,31 @@ void setup() {
     display.clearDisplay();
 
 
+    // The library needs to know what size you need for your EEPROM variables
+    // The minimum size is 16
+    // The begin() call is required to initialise the EEPROM library
+    EEPROM.begin(16);
+
+
     // clear high score TODO with matrix
     if (buttons.start->read() == Button::Pressed &&
             buttons.select->read() == Button::Pressed) {
 
         for (uint8_t i = 0; i < 15; i++) {
-            EEPROM.write(i, 0);
+            EEPROM.put(i, 0);
         }
+        if(EEPROM.commit()){
+            Serial.println("Data written to EEPROM");
+        }else{
+            Serial.println("Error on EEPROM.commit()");
+        }
+        buttons.start->clearEvents();
+        do{
+            buttons.start->read();
+        }while(buttons.start->getEvent() != Button::ReleasedEvent);
     }
+
+
 
     // Clear the buffer
     printWelcomeScreen();
@@ -105,7 +122,7 @@ void setup() {
 
 void startGame() {
     Serial.println("startGame");
-    highscore = EEPROM.read(0);
+    EEPROM.get(0, highscore);
 
     display.clearDisplay();
     direction = RIGHT;
@@ -131,7 +148,7 @@ void printWelcomeScreen() {
     display.println("START");
     display.setTextSize(1);
     display.setCursor(34, 55);
-    display.println("LEADERBOARD");
+    display.println("HIGHSCORE");
     display.display();
 }
 
@@ -155,43 +172,13 @@ void toggleText() {
     } else {
         display.setTextSize(1);
         display.setCursor(34, 55);
-        display.println("LEADERBOARD");
+        display.println("HIGHSCORE");
     }
 
     display.display();
 }
 
-void printLeaderBoard() {
-    display.clearDisplay();
-    display.setTextColor(WHITE);
-    display.setTextSize(1);
-    display.setCursor(0, 0);
-    display.println("NUM: SCORE:   TIME:");
-    for (uint16_t i = 0; i <= 4; i++) {
-        display.drawRect(0, (i * 10) + 10, 20, 11, SSD1306_WHITE);
-        display.drawRect(19, (i * 10) + 10, 50, 11, SSD1306_WHITE);
-        display.drawRect(68, (i * 10) + 10, 60, 11, SSD1306_WHITE);
-        display.setTextColor(WHITE);
-        display.setTextSize(1);
-        display.setCursor(8, (i * 10) + 12);
-        display.println(i + 1);
-        if (EEPROM.read(i * 3) != 0) {
-            display.setCursor(35, (i * 10) + 12);
-            display.println(EEPROM.read(i * 3));
 
-            char pC16[2];
-            pC16[0] = EEPROM.read(i * 3 + 1);
-            pC16[1] = EEPROM.read(i * 3 + 2);
-            uint16_t ui16;
-            memcpy( &ui16, pC16, 2 );
-
-            display.setCursor(85, (i * 10) + 12);
-            display.println(ui16);
-        }
-    }
-
-    display.display();
-}
 
 void loop() {
     buttons.readAll();
@@ -199,12 +186,12 @@ void loop() {
     if (!gameRunning) {
         if (buttons.start->getEvent() == Button::PressedEvent) {
             if (selectedOption == 1) {
-                if (!inLeaderboard) {
-                    inLeaderboard = true;
-                    printLeaderBoard();
+                if (!inHighScore) {
+                    inHighScore = true;
+                    paintHighscore();
                 } else {
                     printWelcomeScreen();
-                    inLeaderboard = false;
+                    inHighScore = false;
                 }
             } else {
                 startGame();
@@ -212,7 +199,7 @@ void loop() {
         }
 
 
-        if (!inLeaderboard && !gameRunning) {
+        if (!inHighScore && !gameRunning) {
 
             if (buttons.up->getEvent() == Button::PressedEvent) {
                 selectedOption = 0;
@@ -220,7 +207,7 @@ void loop() {
 
                 display.setTextSize(1);
                 display.setCursor(34, 55);
-                display.println("LEADERBOARD");
+                display.println("HIGHSCORE");
             }
 
             if (buttons.down->getEvent() == Button::PressedEvent) {
@@ -250,10 +237,10 @@ void loop() {
             control();
 
             if (bodyCross() || borderCross()) {
-            stateDump();
+                stateDump();
 
-            gameRunning = false;
-            checkHighscore();
+                gameRunning = false;
+                updateHighscore();
                 printWelcomeScreen();
                 return;
             }
@@ -313,28 +300,61 @@ void repaintField(){
     display.drawRect(eatPos.x * SEGMENT_SIZE + 1, eatPos.y * SEGMENT_SIZE + 1, 2, 2, SSD1306_WHITE);
 }
 
+void paintHighscore() {
+    display.clearDisplay();
+    display.setTextColor(WHITE);
+    display.setTextSize(1);
+    display.setCursor(0, 0);
+    display.println("NUM: SCORE:   TIME:");
+    for (uint16_t i = 0; i < 5; i++) {
+        display.drawRect(0, (i * 10) + 10, 20, 11, SSD1306_WHITE);
+        display.drawRect(19, (i * 10) + 10, 50, 11, SSD1306_WHITE);
+        display.drawRect(68, (i * 10) + 10, 60, 11, SSD1306_WHITE);
+        display.setTextColor(WHITE);
+        display.setTextSize(1);
+        display.setCursor(8, (i * 10) + 12);
+        display.println(i + 1);
+        uint8_t tmp;
+        EEPROM.get(i*3, tmp);
+        if (tmp != 0) {
+            display.setCursor(35, (i * 10) + 12);
+            display.println(tmp);
 
-void checkHighscore() {
+            uint16_t highScore;
+            EEPROM.get(i*3+1, highScore);
+            display.setCursor(85, (i * 10) + 12);
+            display.println(highScore);
+        }
+    }
+
+    display.display();
+}
+
+void updateHighscore() {
     uint16_t time = millis() / 1000 - starttime;
 
     for (int i = 0; i < 5; i++) {
-        char pC16[2];
-        pC16[0] = EEPROM.read(i * 3 + 1);
-        pC16[1] = EEPROM.read(i * 3 + 2);
-        uint16_t readTime;
-        memcpy( &readTime, pC16, 2 );
-        if (score > EEPROM.read(i * 3) || score == EEPROM.read(i * 3) && readTime > time) {
+        uint16_t highScoreTime;
+        EEPROM.get(i*3+1, highScoreTime);
+        uint8_t highScore;
+        EEPROM.get(i*3, highScore);
 
+        if (score > highScore || score == highScore && highScoreTime > time) {
             for (int j = 4; j > i; j--) {
                 EEPROM.write(j * 3, EEPROM.read((j - 1) * 3));
                 EEPROM.write(j * 3 + 1, EEPROM.read((j - 1) * 3 + 1));
                 EEPROM.write(j * 3 + 2, EEPROM.read((j - 1) * 3 + 2));
             }
 
-            EEPROM.write(i * 3, score);
+            EEPROM.put(i * 3, score);
+            EEPROM.put(i * 3 + 1, time); // write 2 bytes
 
-            EEPROM.write(i * 3 + 1, time & 0xFF);
-            EEPROM.write(i * 3 + 2, time >> 8);
+            if(EEPROM.commit()){
+                Serial.println("Data written to EEPROM");
+            }else{
+                Serial.println("Error on EEPROM.commit()");
+            }
+
             return;
         }
     }
@@ -541,8 +561,11 @@ void stateDump(){
     }
     Serial.println();
 
-    while(buttons.select->read() != Button::Pressed){
+    while(buttons.start->read() != Button::Pressed){
         delay(1);
+    }
+    while(buttons.start->getEvent() != Button::ReleasedEvent){
+        buttons.start->read();
     }
 }
 
