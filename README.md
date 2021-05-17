@@ -31,4 +31,5 @@ Die I2C-Adresse jedenfalls ist 0x3c anstatt 0x3d (Default aus Example Code).
 * OLED I2C vs. SPI on Youtube: https://www.youtube.com/watch?v=Wz6Fzo3rsLM
 * https://www.heise.de/ct/artikel/Arduino-IDE-installieren-und-fit-machen-fuer-ESP8266-und-ESP32-4130814.html
 * http://stefanfrings.de/esp8266/
+* Adafruit Graphics Library Documentation: https://learn.adafruit.com/adafruit-gfx-graphics-library/overview
 
