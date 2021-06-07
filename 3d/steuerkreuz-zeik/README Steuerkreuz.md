@@ -24,3 +24,7 @@ Radius der Außenecken des Kreuzes: 0.8mm
 0.1mm Schichthöhe
 z-Split auf Höhe 2.8mm
 
+
+
+
+

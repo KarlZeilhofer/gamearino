@@ -3,6 +3,35 @@ Changelog Gamearino
 
 
 # Elektronik
+## V20.0.3 Bugfixes für Erste Serienfertigung
+* Reset-Taster hinzugefügt
+* DNP Footprint für Kondensator am Reset-Pin
+* OLED-Beschaltung korrigiert
+* OLED Footprint korrigiert
+* NPN Pinnummerierung korrigiert
+* 0.7mm-Löcher bei der OLED-Flex-PCB
+* Pulldown auf Pin 15 durch fix GND ersetzt
+* SDA/SCL richtig gestell
+* Gerber Export
+* HTML-BOM Export
+* Durchgehend V20.0.3
+
+## V0.0.2 Prototyp Multi-CB
+* Bauteilsortenreduktion beim LCD: 10uF statt 4.7uF, und 2x1uF statt 2.2uF
+* Terminierung der unbenutzten Eingänge am CH340
+* 5k1 auf CC1 und CC2 bei USB-C-Stecker
+* Verwendung des neuen USB-C Footprints mit Pin in Paste
+* Pastenreduktion 30um
+* Lötstoppfreistellung: 51um
+* 150um Leiterbahnabstand
+* 150um Mindestleiterbahnbreite
+* Passmarken für SMD-Schablone
+* 3D-Modelle für Taster und Steuerkreuz aktualisiert
+* Taster beschriftet
+* Beschriftungen auf PCB-Rückseite
+* Power-LED hinzugefügt (Doppel LED, rot aktiv)
+* Bestellung 3 Stk. bei Multi-CB inkl. SMD-Schablone mit 120um
+
 ## V0.0.1 - CNC-Prototyp
 * Grundbeschaltung des ESP8266 ESP-12F:
   * 10k auf GPIO15 gegen GND
@@ -21,35 +50,6 @@ Changelog Gamearino
 * USB-Footprint optimiert, inkl. Pin in Paste
 * Layout für CNC-Fertigung (ca. 60 Vias!)
 
-## V0.0.2 Prototyp Multi-CB
-* Bauteilsortenreduktion beim LCD: 10uF statt 4.7uF, und 2x1uF statt 2.2uF
-* Terminierung der unbenutzten Eingänge am CH340
-* 5k1 auf CC1 und CC2 bei USB-C-Stecker
-* Verwendung des neuen USB-C Footprints mit Pin in Paste
-* Pastenreduktion 30um
-* Lötstoppfreistellung: 51um
-* 150um Leiterbahnabstand
-* 150um Mindestleiterbahnbreite
-* Passmarken für SMD-Schablone
-* 3D-Modelle für Taster und Steuerkreuz aktualisiert
-* Taster beschriftet
-* Beschriftungen auf PCB-Rückseite
-* Power-LED hinzugefügt (Doppel LED, rot aktiv)
-* Bestellung 3 Stk. bei Multi-CB inkl. SMD-Schablone mit 120um
-
-## V20.0.3 Bugfixes für Erste Serienfertigung
-* Reset-Taster hinzugefügt
-* DNP Footprint für Kondensator am Reset-Pin
-* OLED-Beschaltung korrigiert
-* OLED Footprint korrigiert
-* NPN Pinnummerierung korrigiert
-* 0.7mm-Löcher bei der OLED-Flex-PCB
-* Pulldown auf Pin 15 durch fix GND ersetzt
-* SDA/SCL richtig gestell
-* Gerber Export
-* HTML-BOM Export
-* Durchgehend V20.0.3
-
 
 # 3D-Druck
 * Steuerkreuz: Unterkante von 1.8mm auf Niveau +1.6mm abgesenkt, Haltering bleibt oben +2.8mm
@@ -67,6 +67,9 @@ Changelog Gamearino
   * Montage-Sockeln: Stutzen von Durchmesser 3.0 auf 3.2 mm vergrößert
   * Versionskerben
   * Senkungen für Steuerkreuz und A-Taster im Gehäuserand
+* Buttons (A/B und Start/Select) V3:
+  * Rückhaltesteg von 1.2mm auf 0.8mm reduziert, Knöpfe klemmten im Gehäuse, sodass der Taster immer gedrückt war
+  * Gesamtdickt gleich belassen
 ## TODOs
 * Gehäuse dokumentieren
 
@@ -75,6 +78,7 @@ Changelog Gamearino
 ## Snake
 * Grundsätzliche Funktion vorhanden
 * Button-Klasse in Hardware-Test implementiert
-* TODO: Highscore
-* TODO: Asynchrones Warten und Tasten einlesen
+* Highscore
+* Asynchrones Warten und Tasten einlesen
+
 
