@@ -1,241 +1,118 @@
+// License: GPL v2
+// Authors: some students from HTBLA Steyr, Austria
 
-// Gamearino Hardware Test
+/*
+ * Features:
+ * Lenken mit Steuerkreuz
+ * Äpfel fressen
+ * Schlange wird pro Apfel um eins länger
+ * Geschwindigkeit wird mit jedem Apfel erhöht
+ *
+ *
+ * TODOs:
+ * Bugfix, Spiel wird nach 25 Punkten beendet
+ * Highscore Liste im ESP-Flash ablegen
+ * Punktestand nach Spielende anzeigen
+ * Möglichkeit des Pausierens
+ */
+
+
 #include <stdlib.h>
 #include <time.h>
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <EEPROM.h>
+#include <ESP_EEPROM.h>
+#include <stdint.h>
+#include "button.h"
+
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
 
-
-class Button
-{
-public:
-  uint8_t pinColOut;
-  uint8_t pinRowIn;
-
-  Button(uint8_t pinColOut, uint8_t pinRowIn);
-  
-  
-  uint32_t tLastPressed;
-  uint32_t tLastReleased;
-  enum State{Pressed, Released} state;
-  enum Event{NoEvent, PressedEvent, ReleasedEvent};
-
-  static const int32_t T_Bounce = 20;
-
-  State read();
-  Event getEvent(); // clears the event state
-
-private:
-   Event event = NoEvent;
-};
-
-
-
-// Button Matrix
-// UP      C0-R0
-// DOWN    C0-R2
-// LEFT    C0-R1
-// RIGHT   C1-R2
-// SELECT  C1-R0
-// START   C1-R1
-// B       C2-R1
-// A       C2-R0
-
-
-// MCU outputs:
-#define MatrixC0 15
-#define MatrixC1 4
-#define MatrixC2 5
-// MCU inputs (hardware pullups 10k):
-#define MatrixR0 16
-#define MatrixR1 12
-#define MatrixR2 13
-
-Button buttonUp(MatrixC0, MatrixR0);
-Button buttonLeft(MatrixC0, MatrixR1);
-Button buttonDown(MatrixC0, MatrixR2);
-Button buttonSelect(MatrixC1, MatrixR0);
-Button buttonStart(MatrixC1, MatrixR1);
-Button buttonRight(MatrixC1, MatrixR2);
-Button buttonA(MatrixC2, MatrixR0);
-Button buttonB(MatrixC2, MatrixR1);
-
-Button* buttonList[8] = {
-    &buttonUp, &buttonLeft, &buttonDown, &buttonSelect, 
-    &buttonStart, &buttonRight, &buttonA, &buttonB
-  };
-
+#define SEGMENT_SIZE 3
+#define START_LEN 3
+#define FIELD_SIZE_X 32
+#define FIELD_SIZE_Y 21
+#define ARR_LEN 100
 
 
 
 // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 64 // OLED display height, in pixels
-
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
 
 #define LOGO_HEIGHT   16
 #define LOGO_WIDTH    16
 
+enum Direction{UP, DOWN, LEFT, RIGHT};
+Direction direction;
+#define START_DELAY 500
+uint32_t moveDelay=START_DELAY; // start delay in ms
+
 
 void setup() {
+    Serial.begin(115200);
+    delay(100);
+    Serial.println("Gamearino Hardware Test");
+    Wire.begin(14,2); // SDA, SCL
 
-  Serial.begin(9600);
-
-  Serial.println("Gamearino Hardware Test");
-  
-  Serial.print("Press UP...");
-  do{
-    buttonUp.read();
-    delay(1); // reset watchdog timer
-  }while(buttonUp.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press DOWN...");
-  do{
-    buttonDown.read();
-    delay(1); // reset watchdog timer
-  }while(buttonDown.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press LEFT...");
-  do{
-    buttonLeft.read();
-    delay(1); // reset watchdog timer
-  }while(buttonLeft.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press RIGHT...");
-  do{
-    buttonRight.read();
-    delay(1); // reset watchdog timer
-  }while(buttonRight.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press SELECT...");
-  do{
-    buttonSelect.read();
-    delay(1); // reset watchdog timer
-  }while(buttonSelect.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press START...");
-  do{
-    buttonStart.read();
-    delay(1); // reset watchdog timer
-  }while(buttonStart.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press A...");
-  do{
-    buttonA.read();
-    delay(1); // reset watchdog timer
-  }while(buttonA.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Press B...");
-  do{
-    buttonB.read();
-    delay(1); // reset watchdog timer
-  }while(buttonB.state == Button::Released);
-  Serial.println("OK");
-
-  Serial.print("Test Display...");
-  displayTest();
-}
-
-
-void loop()
-{
-  Serial.println("loop");
-  delay(2000);  
-}
-
-
-
-void displayTest() {
-  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C, false, false)) { // Address 0x3D for 128x64
-    Serial.println(F("SSD1306 allocation failed"));
-    for (;;); // Don't proceed, loop forever
-  }
-  Serial.print(F("Size of SSD1306: "));
-  Serial.println(sizeof(display));
-  display.clearDisplay();
-
-
-  Wire.begin(14, 2); // SDA, SCL
-
-  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C, false, false)) {
-    Serial.println(F("SSD1306 allocation failed"));
-    for (;;); // Don't proceed, loop forever
-  }
-  display.clearDisplay();
-
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(35, 5);
-  display.println("Testscreen: ");
-  display.setTextSize(2);
-  display.setCursor(37, 20);
-  display.println("TETRIS");
-  display.setTextSize(1);
-  display.setCursor(52, 43);
-  display.println("START");
-  display.setTextSize(1);
-  display.setCursor(34, 55);
-  display.println("LEADERBOARD");
-  display.display();
-}
-
-
-Button::Button(uint8_t pinColOut, uint8_t pinRowIn)
-  :pinColOut(pinColOut), pinRowIn(pinRowIn)
-{
-  tLastPressed = 0;
-  tLastReleased = 0;
-  state = Released;
-
-  pinMode(pinColOut, OUTPUT);
-  digitalWrite(pinColOut, HIGH);
-  pinMode(pinRowIn, INPUT_PULLUP);
-}
-
-Button::State Button::read()
-{
-  digitalWrite(pinColOut, LOW);
-  bool in = digitalRead(pinRowIn);
-  uint32_t now = millis();
-
-  if(in == LOW){ // if pressed
-    if((now+T_Bounce) >= tLastPressed && state == Released){
-      event = PressedEvent;
-      state = Pressed;
-      tLastPressed = now;
+    // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
+    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C, false, false)) {
+        Serial.println(F("SSD1306 allocation failed"));
+        for (;;); // Don't proceed, loop forever
     }
-  }else{
-    if((now+T_Bounce) >= tLastPressed && state == Pressed){
-      event = ReleasedEvent;
-      state = Released;
-      tLastReleased = now;
+
+    display.clearDisplay();
+    display.setCursor(0,0);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.print("Gamearino HW-Test");
+    display.display();
+    delay(1000);
+    display.clearDisplay();
+    display.display();
+}
+
+void loop(){
+    printButton();
+    delay(10);
+}
+
+void printButton() {
+    display.clearDisplay();
+    display.setCursor(0,0);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+
+    if(buttons.left->read() == Button::Pressed){
+        display.println("LEFT");
     }
-  }
+    if(buttons.right->read() == Button::Pressed){
+        display.println("RIGHT");
+    }
+    if(buttons.up->read() == Button::Pressed){
+        display.println("UP");
+    }
+    if(buttons.down->read() == Button::Pressed){
+        display.println("DOWN");
+    }
+    if(buttons.select->read() == Button::Pressed){
+        display.println("SELECT");
+    }
+    if(buttons.start->read() == Button::Pressed){
+        display.println("START");
+    }
+    if(buttons.a->read() == Button::Pressed){
+        display.println("A");
+    }
+    if(buttons.b->read() == Button::Pressed){
+        display.println("B");
+    }
 
-  // necessary cooperation of column pins:
-  digitalWrite(pinColOut, HIGH);
-
-  return state;
+    display.display();
 }
 
-Button::Event Button::getEvent(){
-  Event ret = event;
-  event = NoEvent;
-  return ret;
-}
+
