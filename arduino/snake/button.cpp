@@ -50,10 +50,8 @@ Button::State Button::read()
     uint32_t now = millis();
 
     if(in == LOW){ // if pressed
-        if((now+T_Bounce) >= tLastPressed && state == Released){
-            if(event == NoEvent){
-                event = PressedEvent;
-            }
+        if((now+T_Bounce) >= tLastReleased && state == Released){
+            event = PressedEvent;
             state = Pressed;
             tLastPressed = now;
         }
@@ -106,4 +104,21 @@ void Buttons::readAll()
     b->read();
     select->read();
     start->read();
+}
+
+void Buttons::clearAllEvents()
+{
+    left->clearEvents();
+    right->clearEvents();
+    up->clearEvents();
+    down->clearEvents();
+    a->clearEvents();
+    b->clearEvents();
+    select->clearEvents();
+    start->clearEvents();
+}
+
+void Button::clearEvents()
+{
+    event = NoEvent;
 }

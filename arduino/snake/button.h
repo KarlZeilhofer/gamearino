@@ -22,7 +22,8 @@ public:
 
   State read();
   Event getEvent(); // clears the event state
-  Event peekEvent();
+  Event peekEvent(); // returns event without clearing it
+  void clearEvents();
 
 private:
    Event event = NoEvent;
@@ -33,6 +34,7 @@ class Buttons
 public:
     Buttons();
     void readAll();
+    void clearAllEvents();
 
     Button* up;
     Button* down;
