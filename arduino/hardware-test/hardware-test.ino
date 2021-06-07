@@ -52,6 +52,8 @@ Direction direction;
 #define START_DELAY 500
 uint32_t moveDelay=START_DELAY; // start delay in ms
 
+bool anyButtonPressed = false;
+
 
 void setup() {
     Serial.begin(115200);
@@ -79,37 +81,61 @@ void setup() {
 void loop(){
     printButton();
     delay(10);
+
+    static bool ticToc=false;
+
+    if(anyButtonPressed == false){
+        if((millis()/2000)%2 == 0 && ticToc == false){
+            display.fillRect(0,0,128,64, WHITE);
+            ticToc = true;
+        }
+        if ((millis()/2000)%2 == 1 && ticToc == true){
+            display.clearDisplay();
+            ticToc = false;
+        }
+        display.display();
+    }
 }
 
 void printButton() {
-    display.clearDisplay();
+    if(anyButtonPressed){
+        display.clearDisplay();
+    }
     display.setCursor(0,0);
     display.setTextSize(1);
     display.setTextColor(WHITE);
 
     if(buttons.left->read() == Button::Pressed){
         display.println("LEFT");
+        anyButtonPressed = true;
     }
     if(buttons.right->read() == Button::Pressed){
         display.println("RIGHT");
+        anyButtonPressed = true;
     }
     if(buttons.up->read() == Button::Pressed){
         display.println("UP");
+        anyButtonPressed = true;
     }
     if(buttons.down->read() == Button::Pressed){
         display.println("DOWN");
+        anyButtonPressed = true;
     }
     if(buttons.select->read() == Button::Pressed){
         display.println("SELECT");
+        anyButtonPressed = true;
     }
     if(buttons.start->read() == Button::Pressed){
         display.println("START");
+        anyButtonPressed = true;
     }
     if(buttons.a->read() == Button::Pressed){
         display.println("A");
+        anyButtonPressed = true;
     }
     if(buttons.b->read() == Button::Pressed){
         display.println("B");
+        anyButtonPressed = true;
     }
 
     display.display();
