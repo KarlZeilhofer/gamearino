@@ -38,13 +38,13 @@ Button::Button(uint8_t pinColOut, uint8_t pinRowIn)
     tLastReleased = 0;
     state = Released;
 
-    pinMode(pinColOut, OUTPUT);
-    digitalWrite(pinColOut, HIGH);
+    pinMode(pinColOut, INPUT);
     pinMode(pinRowIn, INPUT_PULLUP);
 }
 
 Button::State Button::read()
 {
+	pinMode(pinColOut, OUTPUT);
     digitalWrite(pinColOut, LOW);
     bool in = digitalRead(pinRowIn);
     uint32_t now = millis();
@@ -66,8 +66,7 @@ Button::State Button::read()
     }
 
     // necessary cooperation of column pins:
-    digitalWrite(pinColOut, HIGH);
-
+   pinMode(pinColOut, INPUT);
     return state;
 }
 
