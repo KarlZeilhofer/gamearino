@@ -23,7 +23,21 @@ Die I2C-Adresse jedenfalls ist 0x3c anstatt 0x3d (Default aus Example Code).
 
   I2C-Schnittstelle auf GPIO2 und GPIO14 festlegen:
   Wire.begin(14,2); // SDA, SCL
+  
+# Spiele
+Für diese Plattform gibt es zwei Sorten von Spielen: 
+1. HTL-Spiele: Spiele von Schülern entwickelt, befindens sich in diesem Repository im Ordner "arduino": https://github.com/KarlZeilhofer/gamearino/tree/main/arduino
+2. Arduboy2: Spiele von Profis programmiert. Das originale Repository wurde um die Hardwareportierung erweitert und befindet sich hier: https://github.com/KarlZeilhofer/esp8266_arduboy2
 
+## HTL-Spiele
+Für die HTL-Spiele werden folgende Bibliotheken benötigt:
+* Adafruit_BusIO
+* Adafruit_GFX_Library
+* Adafruit_SSD1306
+* ESP_EEPROM
+
+## Arduboy Spiele
+Für die Arduboy-Spiele braucht es das zweite Repository: https://github.com/KarlZeilhofer/esp8266_arduboy2 und die zugehörigen Bibliotheken, siehe README.md dort. 
 
 # Links
 * Arduino ES8266 Core Dokumentation: https://arduino-esp8266.readthedocs.io/en/latest/
